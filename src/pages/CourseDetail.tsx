@@ -166,7 +166,7 @@ useEffect(() => {
     const initializeData = async () => {
       const session = await verifySession();
       if (!session) {
-        navigate('/login', { replace: true });
+        navigate('/#/login', { replace: true });
         return;
       }
 
@@ -311,7 +311,7 @@ const generateCertificate = async () => {
 
     const session = await verifySession();
     if (!session) {
-      navigate('/login', { replace: true });
+      navigate('/#/login', { replace: true });
       return;
     }
 
@@ -392,7 +392,7 @@ const fetchProfile = async () => {
 
     const session = await verifySession();
     if (!session) {
-      navigate('/login', { replace: true });
+      navigate('/#/login', { replace: true });
       return;
     }
 
@@ -526,7 +526,7 @@ const fetchProfile = async () => {
       
       const session = await verifySession();
       if (!session) {
-        navigate('/login', { replace: true });
+        navigate('/#/login', { replace: true });
       }
     };
 
@@ -552,7 +552,7 @@ const fetchProfile = async () => {
         <div className="text-center">
           <p className="text-red-600 mb-4">{error || 'Course not found'}</p>
           <button
-            onClick={() => navigate('/portal/training')}
+            onClick={() => navigate('/#/portal/training')}
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
           >
             Back to Training
@@ -772,7 +772,7 @@ const fetchProfile = async () => {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
                 <div className="space-y-3">
                   <button
-                    onClick={() => navigate('/portal')}
+                    onClick={() => navigate('/#/portal')}
                     className="w-full flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
                   >
                     <BookOpen className="w-4 h-4" />
