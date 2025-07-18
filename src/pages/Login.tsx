@@ -17,7 +17,7 @@ const Login: React.FC = () => {
     const checkExistingSession = async () => {
       if (user) {
         console.log('User already logged in, redirecting to portal');
-        navigate('/portal', { replace: true });
+        navigate('/#/portal', { replace: true });
         return;
       }
       
@@ -26,7 +26,7 @@ const Login: React.FC = () => {
         const session = await verifySession();
         if (session) {
           console.log('Valid session found, redirecting to portal');
-          navigate('/portal', { replace: true });
+          navigate('/#/portal', { replace: true });
         }
       } catch (error) {
         console.log('No valid session found, staying on login page');
@@ -72,7 +72,7 @@ const Login: React.FC = () => {
       
       // Small delay to ensure auth state is updated
       setTimeout(() => {
-        navigate('/portal', { replace: true });
+        navigate('/#/portal', { replace: true });
       }, 100);
       
     } catch (error: any) {
