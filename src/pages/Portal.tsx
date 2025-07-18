@@ -112,7 +112,7 @@ const Portal: React.FC = () => {
 
   useEffect(() => {
     if (!loading && !user) {
-      navigate('/login');
+      navigate('/#/login');
     }
   }, [user, loading, navigate]);
 
@@ -198,7 +198,7 @@ const Portal: React.FC = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate('/login');
+      navigate('/#/login');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -245,7 +245,7 @@ const Portal: React.FC = () => {
     // Verify session before updating
     const session = await verifySession();
     if (!session) {
-      navigate('/login', { replace: true });
+      navigate('/#/login', { replace: true });
       return;
     }
 
@@ -360,7 +360,7 @@ const Portal: React.FC = () => {
               )}
 
               <a
-                href="/"
+                href="/#/"
                 className="hidden sm:inline-flex items-center space-x-1 px-3 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -539,7 +539,7 @@ const Portal: React.FC = () => {
                     <BookOpen className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                     <p className="text-gray-500">No courses enrolled yet</p>
                     <button
-                      onClick={() => navigate('/training')}
+                      onClick={() => navigate('/#/training')}
                       className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                     >
                       Browse Courses
