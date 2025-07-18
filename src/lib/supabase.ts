@@ -77,17 +77,18 @@ export const handleAuthError = async () => {
     console.log('Handling auth error: clearing session and redirecting to login');
     await supabase.auth.signOut();
     localStorage.clear();
-    
+
     // Only redirect if not already on login page
-    if (window.location.pathname !== '/login') {
-      window.location.href = '/login';
+    if (window.location.href.indexOf('/#/login') === -1) {
+      window.location.href = '/ats-website/#/login';
     }
   } catch (error) {
     console.error('Error during auth error handling:', error);
     // Force redirect even if signOut fails
     localStorage.clear();
-    if (window.location.pathname !== '/login') {
-      window.location.href = '/login';
+
+    if (window.location.href.indexOf('/#/login') === -1) {
+      window.location.href = '/ats-website/#/login';
     }
   }
 };
