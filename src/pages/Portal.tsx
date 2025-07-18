@@ -525,7 +525,7 @@ const Portal: React.FC = () => {
                             Duration: {course.duration}
                           </span>
                           <button
-                            onClick={() => navigate(`/student/courses/${course.id}`)}
+                            onClick={() => navigate(`/#/student/courses/${course.id}`)}
                             className="text-blue-600 hover:text-blue-800 font-medium"
                           >
                             Continue
