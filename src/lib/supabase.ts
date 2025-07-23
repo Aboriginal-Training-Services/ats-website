@@ -99,13 +99,13 @@ export const logout = async () => {
     await supabase.auth.signOut();
     localStorage.clear();
     sessionStorage.clear(); // Clear session storage as well
-    window.location.href = '/login';
+    window.location.href = 'login';
   } catch (error) {
     console.error('Error during logout:', error);
     // Force logout even if signOut fails
     localStorage.clear();
     sessionStorage.clear();
-    window.location.href = '/login';
+    window.location.href = 'login';
   }
 };
 

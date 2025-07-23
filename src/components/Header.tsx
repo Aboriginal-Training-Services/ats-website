@@ -160,7 +160,7 @@ const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link
-              to="login"
+              to="/login"
               className="bg-blue-700 hover:bg-blue-800 text-white px-4 xl:px-6 py-2 rounded-md text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
               Student Portal
