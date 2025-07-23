@@ -18,7 +18,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
       
       if (!user) {
         console.log('No user found, redirecting to login');
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
         return;
       }
       
@@ -27,11 +27,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
         const session = await verifySession();
         if (!session) {
           console.log('Session verification failed, redirecting to login');
-          navigate('/login', { replace: true });
+          navigate('login', { replace: true });
         }
       } catch (error) {
         console.error('Error verifying session in ProtectedRoute:', error);
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
       }
     };
 
@@ -49,11 +49,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
         const session = await refreshSession();
         if (!session) {
           console.log('Periodic session check failed, redirecting to login');
-          navigate('/login', { replace: true });
+          navigate('login', { replace: true });
         }
       } catch (error) {
         console.error('Error during periodic session check:', error);
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
       }
     }, 5 * 60 * 1000); // 5 minutes
 
@@ -69,11 +69,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
           const session = await verifySession();
           if (!session) {
             console.log('Session invalid after page became visible, redirecting to login');
-            navigate('/login', { replace: true });
+            navigate('login', { replace: true });
           }
         } catch (error) {
           console.error('Error checking session on visibility change:', error);
-          navigate('/login', { replace: true });
+          navigate('login', { replace: true });
         }
       }
     };
@@ -87,7 +87,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === 'supabase.auth.token' && !e.newValue) {
         console.log('Auth token removed from storage, redirecting to login');
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
       }
     };
 

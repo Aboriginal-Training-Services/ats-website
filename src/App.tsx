@@ -17,7 +17,7 @@ import SignUp from './pages/SignUp';
 function App() {
   return (
     <AuthProvider>
-      <Router basename='/ats-website/'>
+      <Router basename='/ats-website'>
         <Routes>
           {/* Public routes with layout */}
           <Route path="/" element={<Layout><Home /></Layout>} />
@@ -27,7 +27,7 @@ function App() {
           <Route path="/sign-up" element={<Layout><SignUp /></Layout>} />
 
           {/* Login page without layout */}
-          <Route path="/login" element={<Login />} />
+          <Route path="login" element={<Login />} />
           
           {/* Protected portal routes without main layout */}
           <Route 
