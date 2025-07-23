@@ -17,7 +17,7 @@ import SignUp from './pages/SignUp';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename='/ats-website/'>
         <Routes>
           {/* Public routes with layout */}
           <Route path="/" element={<Layout><Home /></Layout>} />
