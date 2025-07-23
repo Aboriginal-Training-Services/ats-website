@@ -79,15 +79,15 @@ export const handleAuthError = async () => {
     localStorage.clear();
     
     // Only redirect if not already on login page
-    if (window.location.pathname !== 'login') {
-      window.location.href = 'login';
+    if (window.location.pathname !== '/login') {
+      window.location.href = '/login';
     }
   } catch (error) {
     console.error('Error during auth error handling:', error);
     // Force redirect even if signOut fails
     localStorage.clear();
-    if (window.location.pathname !== 'login') {
-      window.location.href = 'login';
+    if (window.location.pathname !== '/login') {
+      window.location.href = '/login';
     }
   }
 };
@@ -99,13 +99,13 @@ export const logout = async () => {
     await supabase.auth.signOut();
     localStorage.clear();
     sessionStorage.clear(); // Clear session storage as well
-    window.location.href = 'login';
+    window.location.href = '/login';
   } catch (error) {
     console.error('Error during logout:', error);
     // Force logout even if signOut fails
     localStorage.clear();
     sessionStorage.clear();
-    window.location.href = 'login';
+    window.location.href = '/login';
   }
 };
 

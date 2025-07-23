@@ -28,7 +28,7 @@ function App() {
           <Route path="/sign-up" element={<Layout><SignUp /></Layout>} />
 
           {/* Login page without layout */}
-          <Route path="login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           
           {/* Protected portal routes without main layout */}
           <Route 

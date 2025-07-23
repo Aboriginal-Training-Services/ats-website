@@ -2,12 +2,26 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+
     <script>
+      const path = window.location.pathname;
+      const base = '/ats-website';
+
+      // Redirect /portal/... to /portal
+      if (path.startsWith(`${base}/portal/`)) {
+        window.location.replace(`${base}/portal`);
+      } else {
+        // Fallback: load index.html so SPA router can handle it
+        window.location.replace(`${base}/`);
+      }
+    </script>
+
+    <!-- <script>
       // Redirect to index.html for SPA route fallback
       const redirectTo = sessionStorage.redirect || '/ats-website/';
       sessionStorage.removeItem('redirect');
       window.location.replace(redirectTo);
-    </script>
+    </script> -->
   </head>
   <body></body>
 </html>
