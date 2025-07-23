@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -76,4 +76,21 @@ function App() {
   );
 }
 
-export default App;
+
+
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<div style={{ color: 'green' }}>🏠 Home Route Loaded</div>} />
+//         <Route path="/test" element={<div style={{ color: 'blue' }}>🧪 Test Route Loaded</div>} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+
+
+
+ export default App;
