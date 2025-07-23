@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase, verifySession, logout } from '../lib/supabase';
+import { Link } from 'react-router-dom';
 
 interface HeaderLogo {
   id: string;
@@ -112,7 +113,7 @@ const Portal: React.FC = () => {
 
   useEffect(() => {
     if (!loading && !user) {
-      navigate('login');
+      navigate('/login');
     }
   }, [user, loading, navigate]);
 
@@ -198,7 +199,7 @@ const Portal: React.FC = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate('login');
+      navigate('/login');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -245,7 +246,7 @@ const Portal: React.FC = () => {
     // Verify session before updating
     const session = await verifySession();
     if (!session) {
-      navigate('login', { replace: true });
+      navigate('/login', { replace: true });
       return;
     }
 
@@ -359,13 +360,12 @@ const Portal: React.FC = () => {
                 />
               )}
 
-              <a
-                href="/"
-                className="hidden sm:inline-flex items-center space-x-1 px-3 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                <span>Back to Website</span>
-              </a>
+
+              <Link to="/" className="hidden sm:inline-flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">
+  <ChevronLeft className="w-4 h-4" />
+  <span>Back to Website</span>
+</Link>
+
 
             </div>
 
