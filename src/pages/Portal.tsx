@@ -112,7 +112,7 @@ const Portal: React.FC = () => {
 
   useEffect(() => {
     if (!loading && !user) {
-      navigate('/login');
+      navigate('login');
     }
   }, [user, loading, navigate]);
 
@@ -198,7 +198,7 @@ const Portal: React.FC = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate('/login');
+      navigate('login');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -245,7 +245,7 @@ const Portal: React.FC = () => {
     // Verify session before updating
     const session = await verifySession();
     if (!session) {
-      navigate('/login', { replace: true });
+      navigate('login', { replace: true });
       return;
     }
 

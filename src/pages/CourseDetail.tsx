@@ -166,7 +166,7 @@ useEffect(() => {
     const initializeData = async () => {
       const session = await verifySession();
       if (!session) {
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
         return;
       }
 
@@ -311,7 +311,7 @@ const generateCertificate = async () => {
 
     const session = await verifySession();
     if (!session) {
-      navigate('/login', { replace: true });
+      navigate('login', { replace: true });
       return;
     }
 
@@ -392,7 +392,7 @@ const fetchProfile = async () => {
 
     const session = await verifySession();
     if (!session) {
-      navigate('/login', { replace: true });
+      navigate('login', { replace: true });
       return;
     }
 
@@ -526,7 +526,7 @@ const fetchProfile = async () => {
       
       const session = await verifySession();
       if (!session) {
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
       }
     };
 

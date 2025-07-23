@@ -98,13 +98,13 @@ const PracticeQuestions: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (!courseId || !user) {
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
         return;
       }
 
       const session = await verifySession();
       if (!session) {
-        navigate('/login', { replace: true });
+        navigate('login', { replace: true });
         return;
       }
 

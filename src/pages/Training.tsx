@@ -144,7 +144,7 @@ const Training: React.FC = () => {
 
   const handleRegisterNow = async (courseId: string) => {
     if (!user) {
-      navigate('/login');
+      navigate('login');
       return;
     }
 
