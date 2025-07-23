@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout';
@@ -18,7 +18,8 @@ import SignUp from './pages/SignUp';
 function App() {
   return (
     <AuthProvider>
-      <Router basename='/ats-website'>
+      {/* <Router basename='/ats-website'></Router> */}
+      <Router>
         <Routes>
           {/* Public routes with layout */}
           <Route path="/" element={<Layout><Home /></Layout>} />
