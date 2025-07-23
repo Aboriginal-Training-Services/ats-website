@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Redirect to index.html for SPA route fallback
+      const redirectTo = sessionStorage.redirect || '/ats-website/';
+      sessionStorage.removeItem('redirect');
+      window.location.replace(redirectTo);
+    </script>
+  </head>
+  <body></body>
+</html>
