@@ -84,7 +84,7 @@ const SignUp: React.FC = () => {
               We have received your information. We will contact you soon.
             </p>
             <Link
-              to="login"
+              to="/login"
               className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
             >
               Go to Login
