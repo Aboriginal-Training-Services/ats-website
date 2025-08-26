@@ -160,7 +160,7 @@ const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
 <a
-  href="https://darcy-s-school-fb95.thinkific.com"
+  href="https://darcy-s-school-fb95.thinkific.com/users/sign_in"
   className="bg-blue-700 hover:bg-blue-800 text-white px-4 xl:px-6 py-2 rounded-md text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
 >
   Student Portal
@@ -199,7 +199,7 @@ const Header: React.FC = () => {
               </Link>
             ))}
 <a
-  href="https://darcy-s-school-fb95.thinkific.com"
+  href="https://darcy-s-school-fb95.thinkific.com/users/sign_in"
   className="block px-3 py-3 rounded-md text-base font-medium bg-blue-700 text-white hover:bg-blue-800 transition-all duration-300 transform hover:scale-105 mt-2"
 >
   Student Portal
