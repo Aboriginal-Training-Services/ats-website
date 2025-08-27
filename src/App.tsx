@@ -14,6 +14,7 @@ import CourseDetail from './pages/CourseDetail';
 import PracticeQuestions from './pages/PracticeQuestions';
 import PracticeExam from './pages/PracticeExam';
 import SignUp from './pages/SignUp';
+import Blog from './pages/Blog';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/indigenous-relations" element={<Layout><IndigenousRelations /></Layout>} />
           <Route path="/dashboard" element={<Layout><StudentDashboard /></Layout>} />
           <Route path="/sign-up" element={<Layout><SignUp /></Layout>} />
+<Route path="/blog" element={<Layout><Blog /></Layout>} />
 
           {/* Login page without layout */}
           <Route path="/login" element={<Login />} />
