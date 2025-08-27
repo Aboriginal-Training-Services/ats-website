@@ -4,6 +4,15 @@ import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Clock, Users, Calendar, DollarSign, BookOpen, Award, ChevronRight, Loader2, Filter, GraduationCap } from 'lucide-react';
 
+// Map specific ONLINE course titles to their Thinkific URLs
+const THINKIFIC_URLS: Record<string, string> = {
+  "Book Flight Review (In-Person)": "https://learn.abtraining.ca/courses/book-flight-review-in-person",
+  "Advanced RPAS Prep (1-on-1 Training)": "https://learn.abtraining.ca/courses/advanced-rpas-prep-1-on-1-training",
+  "Advanced Exam Preparation": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
+  "Basic Exam Preparation": "https://learn.abtraining.ca/courses/basic-exam-preparation",
+  "Complex 1": "https://learn.abtraining.ca/courses/complex1",
+};
+
 interface Course {
   id: string;
   title: string;
@@ -358,6 +367,7 @@ const Training: React.FC = () => {
             const isLoadingDetails = loadingDetails.has(course.id);
             const isRegistering = registering.has(course.id);
             const enrolled = isEnrolled(course.id);
+console.log("Course title:", course.title);
 
             return (
               <div key={course.id} className="relative h-96 perspective-1000">
@@ -448,13 +458,16 @@ const Training: React.FC = () => {
                             </>
                           )}
                         </button> */}
-                        <a
-  href="https://learn.abtraining.ca/users/sign_in"
+<a
+  href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/contact"}
+  target="_blank"
+  rel="noopener noreferrer"
   className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
 >
   <ChevronRight className="w-4 h-4 mr-2" />
   Register Now
 </a>
+
 
                       </div>
                     </div>
