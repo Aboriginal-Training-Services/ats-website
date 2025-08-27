@@ -675,7 +675,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      {/* Group of Ventures Section */}
+{/*       {/* Group of Ventures Section */}
       <section className="py-20 bg-white transform transition-all duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -748,7 +748,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Information Section */}
       <section id="contact" className="py-20 bg-gray-50 transform transition-all duration-500">
