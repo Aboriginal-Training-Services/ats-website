@@ -427,7 +427,7 @@ const Training: React.FC = () => {
                           <BookOpen className="w-4 h-4 mr-2" />
                           Learn More
                         </button>
-                        <button
+{/*                         <button
                           onClick={() => handleRegisterNow(course.id)}
                           disabled={enrolled || isRegistering}
                           className={`flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center ${
@@ -447,7 +447,15 @@ const Training: React.FC = () => {
                               Register Now
                             </>
                           )}
-                        </button>
+                        </button> */}
+                        <a
+  href="https://learn.abtraining.ca/users/sign_in"
+  className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
+>
+  <ChevronRight className="w-4 h-4 mr-2" />
+  Register Now
+</a>
+
                       </div>
                     </div>
                   </div>
