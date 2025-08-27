@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Clock, Users, Calendar, DollarSign, BookOpen, Award, ChevronRight, Loader2, Filter, GraduationCap } from 'lucide-react';
 
 const THINKIFIC_URLS: Record<string, string> = {
-  "Drone Pilot Certificate – Advanced Operations (Online)": "https://learn.abtraining.ca/courses/complex1",
+"Drone Pilot Certificate – Advanced Operations (Online)": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
   "Drone Pilot Certificate – Basic Operations (Online)": "https://learn.abtraining.ca/courses/basic-exam-preparation",
   "Recency Requirements – Remotely Piloted Aircraft Systems (Online)": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
   "RPAS Apprenticeship Program – Advanced Level": "https://learn.abtraining.ca/courses/advanced-rpas-prep-1-on-1-training",
@@ -459,7 +459,7 @@ console.log("Course title:", course.title);
                           )}
                         </button> */}
 <a
-  href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/contact"}
+href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#contact"}
   target="_blank"
   rel="noopener noreferrer"
   className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
