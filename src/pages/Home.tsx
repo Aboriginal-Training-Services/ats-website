@@ -54,9 +54,9 @@ const iconMap: { [key: string]: React.ComponentType<any> } = {
   zap: Zap,
 
   // Where we are heading symbols
-  users: Users,
+  // users: Users,
   leaf: Leaf,
-  zap: Zap,
+  // zap: Zap,
   recycle: Recycle,
   rocket: Rocket,
 
