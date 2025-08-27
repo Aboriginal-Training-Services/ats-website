@@ -4,14 +4,14 @@ import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Clock, Users, Calendar, DollarSign, BookOpen, Award, ChevronRight, Loader2, Filter, GraduationCap } from 'lucide-react';
 
-// Map specific ONLINE course titles to their Thinkific URLs
 const THINKIFIC_URLS: Record<string, string> = {
-  "Book Flight Review (In-Person)": "https://learn.abtraining.ca/courses/book-flight-review-in-person",
-  "Advanced RPAS Prep (1-on-1 Training)": "https://learn.abtraining.ca/courses/advanced-rpas-prep-1-on-1-training",
-  "Advanced Exam Preparation": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
-  "Basic Exam Preparation": "https://learn.abtraining.ca/courses/basic-exam-preparation",
-  "Complex 1": "https://learn.abtraining.ca/courses/complex1",
+  "Drone Pilot Certificate – Advanced Operations (Online)": "https://learn.abtraining.ca/courses/complex1",
+  "Drone Pilot Certificate – Basic Operations (Online)": "https://learn.abtraining.ca/courses/basic-exam-preparation",
+  "Recency Requirements – Remotely Piloted Aircraft Systems (Online)": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
+  "RPAS Apprenticeship Program – Advanced Level": "https://learn.abtraining.ca/courses/advanced-rpas-prep-1-on-1-training",
+  "Transport Canada Flight Review – Complex Category": "https://learn.abtraining.ca/courses/book-flight-review-in-person"
 };
+
 
 interface Course {
   id: string;
