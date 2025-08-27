@@ -459,7 +459,7 @@ console.log("Course title:", course.title);
                           )}
                         </button> */}
 <a
-href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#contact"}
+href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"}
   target="_blank"
   rel="noopener noreferrer"
   className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
