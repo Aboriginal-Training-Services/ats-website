@@ -528,7 +528,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 >
                   Learn Our Story
                 </Link>
-<button
+{/* <button
   onClick={() => setShowBooking(true)}
   className="block w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white text-center py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
 >
@@ -540,7 +540,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
         </div>
       </section>
-
+ */}
 {/* Vision and Mission Section */}
 <section className="py-20 bg-white transform transition-all duration-500">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
