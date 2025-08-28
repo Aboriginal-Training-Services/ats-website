@@ -2,8 +2,11 @@
 title: "Protecting Our Lands: Drone Training for Environmental Monitoring"
 subtitle: "How Indigenous communities partner with ATS to monitor forests and waterways using drones"
 date: 2025-08-28
+draft: false
+slug: "protecting-our-lands-drone-training"   # <— ADD THIS
 cover: "/images/blog/protecting-our-lands-drone-training-cover.png"
 ---
+
 
 Across Canada, Indigenous communities are embracing drone technology as a practical tool for protecting lands and waters. With vast territories to monitor, from old-growth forests to salmon-bearing rivers, the challenge has always been speed, cost, and access to timely information. Aboriginal Training Services (ATS) bridges that gap by delivering specialised drone training programmes that blend Transport Canada certification standards with Indigenous knowledge and stewardship priorities.
 
