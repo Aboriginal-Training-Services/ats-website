@@ -389,7 +389,8 @@ const handleSubmit = async (e: React.FormEvent) => {
       </div>
 
 <section className="relative text-white overflow-hidden">
-  {titleSection?.video_url || titleSection?.video ? (
+  {/* Background Video or Image */}
+  {titleSection?.video_url ? (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
       <video
         className="absolute inset-0 w-full h-full object-cover min-w-full min-h-full"
@@ -398,29 +399,29 @@ const handleSubmit = async (e: React.FormEvent) => {
         loop
         playsInline
         onError={(e) => {
-          const target = e.currentTarget
-          target.style.display = 'none'
+          // Hide video on error, fallback to image or gradient
+          const target = e.currentTarget;
+          target.style.display = "none";
         }}
       >
-        <source src={titleSection?.video_url || titleSection?.video || ''} type="video/mp4" />
+        <source src={titleSection.video_url} type="video/mp4" />
       </video>
     </div>
   ) : titleSection?.hero_image_url ? (
-    <img
-      src={titleSection.hero_image_url}
-      alt="Hero background"
-      className="absolute inset-0 w-full h-full object-cover"
-      onError={(e) => {
-        const target = e.currentTarget as HTMLImageElement
-        target.style.display = 'none'
-        const fallback = document.createElement('div')
-        fallback.className = 'absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700'
-        target.parentElement?.appendChild(fallback)
-      }}
-    />
+    <div className="absolute inset-0 w-full h-full">
+      <img
+        src={titleSection.hero_image_url}
+        alt="Hero background"
+        className="absolute inset-0 w-full h-full object-cover"
+        onError={(e) => {
+          e.currentTarget.style.display = "none";
+        }}
+      />
+    </div>
   ) : (
     <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700"></div>
   )}
+
 
   <div className="absolute inset-0 bg-black opacity-40"></div>
 
