@@ -142,6 +142,7 @@ const Home: React.FC = () => {
   const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
   const [contactLocations, setContactLocations] = useState<ContactLocation[]>([]);
   const [studentStories, setStudentStories] = useState<StudentStory[]>([]);
+const [showBooking, setShowBooking] = useState(false);
 
   // Form states
   const [formData, setFormData] = useState({
@@ -527,12 +528,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                 >
                   Learn Our Story
                 </Link>
-                <a
-                  href="#contact"
-                  className="block w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white text-center py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-                >
-                  Contact Us
-                </a>
+<button
+  onClick={() => setShowBooking(true)}
+  className="block w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white text-center py-3 px-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+>
+  Contact Us
+</button>
+
               </div>
             </div>
           </div>
@@ -758,6 +760,17 @@ const handleSubmit = async (e: React.FormEvent) => {
     </div>
   </section>
 )}
+{showBooking && (
+  <div className="max-w-4xl mx-auto my-12">
+    <iframe
+      src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3mwUjIa-7bG4Sf8Iap_P1dOV-XnzeS3bdHFL3YRRygO1AO74eFiMNbQ233haElSTebMyYg2UM_?gv=true"
+      style={{ border: 0 }}
+      width="100%"
+      height="600"
+      frameBorder="0"
+    ></iframe>
+  </div>
+)}
 
 
       {/* Contact Information Section */}
@@ -813,7 +826,8 @@ const handleSubmit = async (e: React.FormEvent) => {
             </div>
           </div>
 
-          {/* Contact Form */}
+{/* Contact Form — hidden for now */}
+{/*
           <div className="bg-white rounded-xl shadow-lg p-8 transform transition-all duration-500 hover:shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Send Us a Message</h3>
             
@@ -927,9 +941,9 @@ const handleSubmit = async (e: React.FormEvent) => {
               </form>
             )}
           </div>
+*/}
         </div>
       </section>
-
       {/* Google Reviews Widget Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
