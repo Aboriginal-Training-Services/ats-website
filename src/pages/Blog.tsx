@@ -32,16 +32,19 @@ const files = useMemo(
   useEffect(() => {
     const loaded: Post[] = [];
 
-    for (const path in files) {
-      const raw = files[path];
-      const parsed = matter(raw);
-      const fm = parsed.data as Frontmatter;
+for (const path in files) {
+  const raw = files[path];
+  const parsed = matter(raw);
+  const fm = parsed.data as Frontmatter;
 
-      loaded.push({
-        frontmatter: fm,
-        path,
-      });
-    }
+  // Skip if published is false
+  if (fm.published === false) continue;
+
+  loaded.push({
+    frontmatter: fm,
+    path,
+  });
+}
 
     // sort newest → oldest
     loaded.sort(
