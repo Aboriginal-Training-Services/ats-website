@@ -14,8 +14,6 @@ import CourseDetail from './pages/CourseDetail';
 import PracticeQuestions from './pages/PracticeQuestions';
 import PracticeExam from './pages/PracticeExam';
 import SignUp from './pages/SignUp';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
@@ -29,8 +27,6 @@ function App() {
           <Route path="/indigenous-relations" element={<Layout><IndigenousRelations /></Layout>} />
           <Route path="/dashboard" element={<Layout><StudentDashboard /></Layout>} />
           <Route path="/sign-up" element={<Layout><SignUp /></Layout>} />
-<Route path="/blog" element={<Layout><Blog /></Layout>} />
-<Route path="/blog/:slug" element={<Layout><BlogPost /></Layout>} />
 
           {/* Login page without layout */}
           <Route path="/login" element={<Login />} />
@@ -82,21 +78,4 @@ function App() {
   );
 }
 
-
-
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<div style={{ color: 'green' }}>🏠 Home Route Loaded</div>} />
-//         <Route path="/test" element={<div style={{ color: 'blue' }}>🧪 Test Route Loaded</div>} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-
-
-
- export default App;
+export default App;
