@@ -8,6 +8,7 @@ type Frontmatter = {
   slug: string;
   date: string;
   cover?: string;
+  published?: boolean;  // ← add this line
 };
 
 type Post = {
