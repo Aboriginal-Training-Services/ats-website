@@ -7,12 +7,9 @@ import { Clock, Users, Calendar, DollarSign, BookOpen, Award, ChevronRight, Load
 const THINKIFIC_URLS: Record<string, string> = {
   "Drone Pilot Certificate – Advanced Operations (Online)": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
   "Drone Pilot Certificate – Basic Operations (Online)":"https://learn.abtraining.ca/courses/basic-exam-preparation",
-  // "Recency Requirements – Remotely Piloted Aircraft Systems (Online)":"https://learn.abtraining.ca/courses/advanced-exam-preparation",
-  "RPAS Apprenticeship Program – Advanced Level":"https://learn.abtraining.ca/courses/advanced-rpas-prep-1-on-1-training",
-  "Transport Canada Flight Review – Complex Category":"https://learn.abtraining.ca/courses/book-flight-review-in-person",
+  "Transport Canada Flight Review":"https://learn.abtraining.ca/courses/book-flight-review-in-person",
   "Drone Pilot Certificate – Level 1 Complex Operations (In-Person)": "https://learn.abtraining.ca/courses/complex1",
-  "Transport Canada Flight Review – Advanced Category": "https://learn.abtraining.ca/courses/book-flight-review-in-person",
-  "Drone Pilot Certificate – Advanced Operations (In-Person)":"https://learn.abtraining.ca/courses/advanced-exam-preparation",
+  "Drone Pilot Certificate – Advanced Operations (In-Person)":"https://learn.abtraining.ca/courses/advanced-rpas-prep-1-on-1-training",
 };
 
 
