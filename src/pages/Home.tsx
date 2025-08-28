@@ -30,7 +30,7 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import GoogleReviewsCarousel from '../components/GoogleReviewsCarousel';
-import StudentSuccessCarousel from '../components/StudentSuccessCarousel';
+// import StudentSuccessCarousel from '../components/StudentSuccessCarousel';
 
 // Icon mapping for dynamic icon rendering
 const iconMap: { [key: string]: React.ComponentType<any> } = {
@@ -949,7 +949,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      {/* Reviews/Testimonials Section */}
+{/*       {/* Reviews/Testimonials Section */}
       <section className="py-20 bg-gray-50 transform transition-all duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -965,7 +965,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           <StudentSuccessCarousel studentStories={studentStories} />
         </div>
       </section>
-
+ */}
       {/* CTA Section */}
       <section className="py-20 bg-blue-900 text-white transform transition-all duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -994,7 +994,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      {/* Newsletter Subscription Section */}
+{/*       {/* Newsletter Subscription Section */}
       <section className="py-16 bg-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
@@ -1036,7 +1036,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             )}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Custom CSS for flip animations */}
       <style jsx>{`
