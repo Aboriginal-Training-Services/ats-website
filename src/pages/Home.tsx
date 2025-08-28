@@ -949,23 +949,25 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-{/*       {/* Reviews/Testimonials Section */}
-      <section className="py-20 bg-gray-50 transform transition-all duration-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Student Success Stories
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Real testimonials from graduates who have advanced their careers through 
-              professional RPAS training at Aboriginal Training Services.
-            </p>
-          </div>
-          
-          <StudentSuccessCarousel studentStories={studentStories} />
-        </div>
-      </section>
- */}
+{/* Student Success Stories — hidden for now */}
+{/*
+<section className="py-20 bg-gray-50 transform transition-all duration-500">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Student Success Stories
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Real testimonials from graduates who have advanced their careers through 
+        professional RPAS training at Aboriginal Training Services.
+      </p>
+    </div>
+    
+    <StudentSuccessCarousel studentStories={studentStories} />
+  </div>
+</section>
+*/}
+
       {/* CTA Section */}
       <section className="py-20 bg-blue-900 text-white transform transition-all duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -994,49 +996,51 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-{/*       {/* Newsletter Subscription Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Subscribe to Our Newsletter
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Stay updated with the latest RPAS technology news, training opportunities, and industry insights.
-            </p>
-            
-            {isNewsletterSubmitted ? (
-              <div className="py-4">
-                <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Successfully Subscribed!</h3>
-                <p className="text-gray-600">Thank you for subscribing to our newsletter.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  required
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-                <button
-                  type="submit"
-                  disabled={isNewsletterSubmitting}
-                  className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                    isNewsletterSubmitting
-                      ? 'bg-gray-400 cursor-not-allowed text-white'
-                      : 'bg-blue-700 hover:bg-blue-800 text-white transform hover:scale-105'
-                  }`}
-                >
-                  {isNewsletterSubmitting ? 'Subscribing...' : 'Subscribe'}
-                </button>
-              </form>
-            )}
-          </div>
+{/* Newsletter Subscription — hidden for now */}
+{/*
+<section className="py-16 bg-gray-100">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        Subscribe to Our Newsletter
+      </h2>
+      <p className="text-gray-600 mb-6">
+        Stay updated with the latest RPAS technology news, training opportunities, and industry insights.
+      </p>
+      
+      {isNewsletterSubmitted ? (
+        <div className="py-4">
+          <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Successfully Subscribed!</h3>
+          <p className="text-gray-600">Thank you for subscribing to our newsletter.</p>
         </div>
-      </section> */}
+      ) : (
+        <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input
+            type="email"
+            value={newsletterEmail}
+            onChange={(e) => setNewsletterEmail(e.target.value)}
+            placeholder="Enter your email address"
+            required
+            className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <button
+            type="submit"
+            disabled={isNewsletterSubmitting}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+              isNewsletterSubmitting
+                ? 'bg-gray-400 cursor-not-allowed text-white'
+                : 'bg-blue-700 hover:bg-blue-800 text-white transform hover:scale-105'
+            }`}
+          >
+            {isNewsletterSubmitting ? 'Subscribing...' : 'Subscribe'}
+          </button>
+        </form>
+      )}
+    </div>
+  </div>
+</section>
+*/}
 
       {/* Custom CSS for flip animations */}
       <style jsx>{`
