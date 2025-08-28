@@ -65,13 +65,15 @@ const iconMap: { [key: string]: React.ComponentType<any> } = {
   default: Award
 };
 
-// Interface definitions for database tables
 interface HomeTitleSection {
   name: string;
   text: string;
   slogan: string;
   video: string | null;
+  video_url?: string | null;
+  hero_image_url?: string | null;
 }
+
 
 interface HomeNumber {
   number: string;
@@ -386,60 +388,72 @@ const handleSubmit = async (e: React.FormEvent) => {
         <div className="absolute bottom-20 right-10 w-5 h-5 bg-blue-200 rounded-full opacity-30 animate-pulse"></div>
       </div>
 
-      {/* Hero Section with Background Video */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden">
-        {/* Background Video */}
-        {titleSection?.video_url && (
-          <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <video
-              className="absolute inset-0 w-full h-full object-cover min-w-full min-h-full"
-              autoPlay
-              muted
-              loop
-              playsInline
-              onError={(e) => {
-                // Hide video on error, fallback to gradient background
-                const target = e.currentTarget;
-                target.style.display = 'none';
-              }}
-            >
-              <source src={titleSection.video_url} type="video/mp4" />
-            </video>
-          </div>
-        )}
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 transform transition-all duration-1000 hover:scale-[1.02] z-10">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
-              {titleSection?.name || 'Professional Drone Academy'}
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-blue-100 font-semibold">
-              {titleSection?.text || 'Advocate, Encourage, and Unite Indigenous Peoples & Communities to lead the Drone Industry.'}
-            </p>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-blue-200 max-w-3xl mx-auto leading-relaxed">
-              {titleSection?.slogan || 'Training for the Future'}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/training"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center"
-              >
-                View Training
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/indigenous-relations"
-                className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105"
-              >
-                Our Heritage
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+<section className="relative text-white overflow-hidden">
+  {titleSection?.video_url || titleSection?.video ? (
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <video
+        className="absolute inset-0 w-full h-full object-cover min-w-full min-h-full"
+        autoPlay
+        muted
+        loop
+        playsInline
+        onError={(e) => {
+          const target = e.currentTarget
+          target.style.display = 'none'
+        }}
+      >
+        <source src={titleSection?.video_url || titleSection?.video || ''} type="video/mp4" />
+      </video>
+    </div>
+  ) : titleSection?.hero_image_url ? (
+    <img
+      src={titleSection.hero_image_url}
+      alt="Hero background"
+      className="absolute inset-0 w-full h-full object-cover"
+      onError={(e) => {
+        const target = e.currentTarget as HTMLImageElement
+        target.style.display = 'none'
+        const fallback = document.createElement('div')
+        fallback.className = 'absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700'
+        target.parentElement?.appendChild(fallback)
+      }}
+    />
+  ) : (
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700"></div>
+  )}
+
+  <div className="absolute inset-0 bg-black opacity-40"></div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 transform transition-all duration-1000 hover:scale-[1.02] z-10">
+    <div className="text-center">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        {titleSection?.name || 'Professional Drone Academy'}
+      </h1>
+      <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 text-blue-100 font-semibold">
+        {titleSection?.text || 'Advocate, Encourage, and Unite Indigenous Peoples & Communities to lead the Drone Industry.'}
+      </p>
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-blue-200 max-w-3xl mx-auto leading-relaxed">
+        {titleSection?.slogan || 'Training for the Future'}
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Link
+          to="/training"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center"
+        >
+          View Training
+          <ArrowRight className="ml-2 h-5 w-5" />
+        </Link>
+        <Link
+          to="/indigenous-relations"
+          className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+        >
+          Our Heritage
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Stats Section */}
       <section className="py-16 bg-gray-50 transform transition-all duration-500">
