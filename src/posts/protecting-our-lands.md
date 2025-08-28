@@ -3,7 +3,7 @@ title: "Protecting Our Lands: Drone Training for Environmental Monitoring"
 summary: "How Indigenous communities partner with ATS to monitor forests and waterways using drones"
 slug: "protecting-our-lands-drone-training"
 date: "2025-08-27"
-cover: "/images/blog/protecting-our-lands-drone-training-cover.jpg"
+cover: "/images/blog/protecting-our-lands-drone-training-cover.png"
 author: "ATS Team"
 ---
 
