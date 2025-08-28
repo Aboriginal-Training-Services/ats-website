@@ -1,3 +1,6 @@
+// Buffer polyfill for browser (gray-matter needs it)
+import { Buffer } from 'buffer';
+;(window as any).Buffer = (window as any).Buffer || Buffer;
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
