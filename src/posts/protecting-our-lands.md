@@ -11,7 +11,7 @@ To date, ATS has worked with more than **50 communities**, training **over 500 p
 
 The success rate of these programmes is equally compelling. **Ninety-nine percent of students pass their Transport Canada examinations on the first attempt**, demonstrating both the quality of instruction and the dedication of participants. Graduates leave not only with certificates but also with the confidence to lead local monitoring efforts, apply drone skills to conservation and resource management, and inspire youth to see future careers in science and technology.
 
-<img src="/images/blog/image6.png" alt="Drones provide real-time aerial perspectives of forest health" />
+![Drones provide real-time aerial perspectives of forest health](/images/blog/image6.png)
 *Drones provide real-time aerial perspectives of forest health*
 
 Indigenous Nations are responsible for stewarding some of the largest and most ecologically diverse territories in Canada. These lands and waters face mounting pressures: **illegal logging**, **wildfire risk**, **climate-driven flooding**, **riverbank erosion**, **industrial development**, and the need to **protect wildlife habitats**. Traditional monitoring methods — helicopter flights, consultant reports, or occasional government surveys — often arrive late, cost too much, or lack the depth of local knowledge required to understand change on the ground.
@@ -28,7 +28,7 @@ Aboriginal Training Services (ATS) builds programmes with one clear vision: to m
 
 By combining these objectives, ATS ensures that every flight not only produces high-quality imagery but also strengthens the autonomy and resilience of the communities it serves.
 
-<img src="/images/blog/image2.png" alt="Local community members prepare for drone flight training" />
+![Local community members prepare for drone flight training](/images/blog/image2.png)
 *Local community members prepare for drone flight training*
 
 Before adopting drone technology, Indigenous communities faced serious challenges in monitoring their lands and waters. Environmental change often went undetected until it was too late to respond effectively. **Chartered helicopter and plane flights** were prohibitively expensive, sometimes costing tens of thousands of dollars for a single survey. Because flights could only be arranged a few times per year, important seasonal changes — such as flood events, wildlife migration, or forest disease outbreaks — were often missed.
@@ -39,7 +39,7 @@ Even when data was available, **ownership and access remained a challenge**. Ima
 
 Without modern, accessible monitoring tools, Indigenous leaders were left with high costs, limited data, and few opportunities to create sustainable local employment in environmental management.
 
-<img src="/images/blog/image7.png" alt="Traditional monitoring methods were costly and limited" />
+![Traditional monitoring methods were costly and limited](/images/blog/image7.png)
 *Traditional monitoring methods were costly and limited*
 
 Aboriginal Training Services (ATS) responds to these challenges with a comprehensive training programme designed specifically for Indigenous communities. The programme combines **Transport Canada–aligned certification**, **hands-on flight practice**, and **community-centred monitoring applications**. Rather than importing expertise, ATS builds it from within, ensuring that every participant leaves with the confidence and credentials to lead environmental monitoring efforts at home.
@@ -48,7 +48,7 @@ The curriculum is modular and adaptable. Participants begin with the fundamental
 
 Equally important, ATS prioritises **data sovereignty**. Trainees learn not only how to capture imagery but also how to manage, archive, and analyse it under community-defined protocols. This keeps control of sensitive environmental data in the hands of the people most affected by it. The result is a workforce that is both technically skilled and culturally grounded, able to operate drones safely and transform aerial data into actionable insights for leadership.
 
-<img src="/images/blog/image9.png" alt="ATS instructors combine technical skills with Indigenous knowledge" />
+![ATS instructors combine technical skills with Indigenous knowledge](/images/blog/image9.png)
 *ATS instructors combine technical skills with Indigenous knowledge*
 
 Every ATS training programme begins with **community engagement**. Leadership, guardians, and elders are consulted to identify monitoring priorities and culturally sensitive areas. This ensures the programme is not a one-size-fits-all package but instead tailored to the unique environmental and cultural context of each Nation.
@@ -57,14 +57,14 @@ From there, participants enter a structured training pathway. **Classroom sessio
 
 The training culminates in **community-driven monitoring projects**. These projects allow participants to apply their skills to real-world concerns, whether it is assessing post-wildfire regeneration, mapping shoreline erosion, or tracking water quality. Results are shared back with leadership, reinforcing the value of local capacity and giving communities a new, practical tool for decision-making.
 
-<img src="/images/blog/image5.png" alt="Field practicums give participants real-world experience in monitoring local environments" />
+![Field practicums give participants real-world experience in monitoring local environments](/images/blog/image5.png)
 *Field practicums give participants real-world experience in monitoring local environments*
 
 Drone monitoring works because it is **repeatable, precise, and adaptable to local needs**. ATS teaches participants to design flights that can be repeated season after season, ensuring consistent data for long-term comparisons. In forestry applications, drones capture detailed images of canopy health, storm damage, and regeneration after logging or wildfire. River systems are monitored through **linear flight paths**, allowing communities to assess erosion, sediment movement, and seasonal changes in water levels. Wetlands and cultural heritage sites are documented with **high-resolution orthomosaics** that can be layered into maps and shared in council meetings or planning sessions.
 
 When needed, ATS introduces specialised sensors such as **thermal cameras** to detect seepage or hotspots, and **multispectral cameras** to measure vegetation health. These tools give communities deeper insights into ecosystem changes without the expense of hiring outside contractors.
 
-<img src="/images/blog/image1.png" alt="Drone data is processed into maps and reports that support evidence-based decision-making" />
+![Drone data is processed into maps and reports that support evidence-based decision-making](/images/blog/image1.png)
 *Drone data is processed into maps and reports that support evidence-based decision-making*
 
 For Indigenous communities, technology is only valuable when it strengthens sovereignty and aligns with cultural values. That principle guides every aspect of ATS training. Beyond flight skills and technical workflows, participants learn how to manage environmental data responsibly and in accordance with community-defined protocols.
@@ -75,31 +75,31 @@ For Indigenous communities, technology is only valuable when it strengthens sove
 
 ATS programmes reinforce the idea that Indigenous Nations are not only **keepers of the land** but also **keepers of the data**. Each training cohort leaves with not just technical knowledge but also an ethical framework for responsible, respectful use of technology in service of the environment and their people.
 
-<img src="/images/blog/image3.png" alt="Data sovereignty ensures that environmental information remains under community control and guidance" />
+![Data sovereignty ensures that environmental information remains under community control and guidance](/images/blog/image3.png)
 *Data sovereignty ensures that environmental information remains under community control and guidance*
 
 Safety is the foundation of every ATS training programme. Participants are introduced to Transport Canada regulations from the very first session and learn how to plan and conduct flights that meet national standards. This includes airspace awareness, weather assessment, pre-flight and post-flight checklists, and clear emergency procedures. Practical drills are built into every stage of the training. Trainees rehearse what to do in the event of a lost signal, sudden weather change, or low battery emergency. Compliance also means accountability: every flight is documented with logs that track location, duration, and outcomes.
 
-<img src="/images/blog/image8.png" alt="Pre-flight checklists and emergency drills ensure safe missions" />
+![Pre-flight checklists and emergency drills ensure safe missions](/images/blog/image8.png)
 *Pre-flight checklists and emergency drills ensure safe missions*
 
 The results of ATS drone training programmes have been both measurable and transformative. Across more than **50 Indigenous communities**, over **500 participants** have received professional training and certification support. Together, they have conducted more than **1,000 drone flights**, producing detailed monitoring data that covers large portions of Alberta and British Columbia.  
 
 The certification success rate is equally remarkable: **99 percent of ATS students pass their Transport Canada examinations on the first attempt**. Communities now have access to **timely aerial data** that reduces delays and improves responsiveness to floods, forest changes, and environmental disturbances. This capacity has cut costs by decreasing reliance on chartered aircraft and external consultants, while simultaneously **creating pathways to local employment** in conservation, forestry, mining, and cultural heritage management.
 
-<img src="/images/blog/image4.png" alt="Drone-generated maps empower leadership with clear, timely evidence" />
+![Drone-generated maps empower leadership with clear, timely evidence](/images/blog/image4.png)
 *Drone-generated maps empower leadership with clear, timely evidence*
 
 The success of drone training does not end when participants receive their certificates. For Indigenous communities, sustainability means embedding the technology into long-term stewardship practices and ensuring that future generations carry the skills forward. ATS supports this through **youth mentorship programmes** and **train-the-trainer pathways**.  
 
 At the same time, communities are expanding into **advanced applications** that extend beyond the foundational programme — multispectral and thermal sensors, cultural heritage documentation, and partnerships with conservation agencies and industry.  
 
-<img src="/images/blog/image10.png" alt="Mentorship and youth training ensure skills are carried forward to future generations" />
+![Mentorship and youth training ensure skills are carried forward to future generations](/images/blog/image10.png)
 *Mentorship and youth training ensure skills are carried forward to future generations*
 
 ATS continues to walk alongside communities during this expansion, providing advanced workshops, refresher training, and technical support. The goal is to ensure that drone programmes are not one-time projects, but **long-term investments in sovereignty, environmental stewardship, and economic opportunity**.
 
-<img src="/images/blog/image11.png" alt="Advanced sensors expand applications from basic mapping to vegetation health and thermal monitoring" />
+![Advanced sensors expand applications from basic mapping to vegetation health and thermal monitoring](/images/blog/image11.png)
 *Advanced sensors expand applications from basic mapping to vegetation health and thermal monitoring*
 
 Drone technology is transforming how Indigenous Nations safeguard their lands and waters. With the support of Aboriginal Training Services (ATS), communities are no longer waiting for outside reports or costly aerial surveys — they are flying their own missions, generating their own data, and making their own evidence-based decisions.  
