@@ -19,14 +19,15 @@ const Blog: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   // Collect all markdown files in src/posts
-  const files = useMemo(
-    () =>
-      import.meta.glob("/src/posts/**/*.md", {
-        as: "raw",
-        eager: true,
-      }) as Record<string, string>,
-    []
-  );
+const files = useMemo(
+  () =>
+    import.meta.glob("/src/posts/**/*.md", {
+      eager: true,
+      query: "?raw",
+      import: "default",
+    }) as Record<string, string>,
+  []
+);
 
   useEffect(() => {
     const loaded: Post[] = [];
