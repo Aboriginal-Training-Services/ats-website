@@ -14,6 +14,8 @@ import CourseDetail from './pages/CourseDetail';
 import PracticeQuestions from './pages/PracticeQuestions';
 import PracticeExam from './pages/PracticeExam';
 import SignUp from './pages/SignUp';
+import Blog from './pages/blog';
+import BlogPost from './pages/blogpost';
 
 function App() {
   return (
