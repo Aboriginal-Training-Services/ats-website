@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { Clock, Users, Calendar, DollarSign, BookOpen, Award, ChevronRight, Loader2, Filter, GraduationCap } from 'lucide-react';
+import { Clock, Calendar, BookOpen, Award, ChevronRight, Loader2, Filter, GraduationCap } from 'lucide-react';
 
 const THINKIFIC_URLS: Record<string, string> = {
   "Drone Pilot Certificate – Advanced Operations (Online)": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
@@ -27,13 +27,12 @@ interface Course {
   currency: string;
   duration: string;
   max_students: number;
-  start_date: string | null;            // keep existing (stored value)
-  start_date_display?: string | null;   // NEW: computed by the view
+  start_date: string | null;
+  start_date_display?: string | null;
   whats_included: any;
   is_active: boolean;
   is_online: boolean;
 }
-
 
 interface Enrollment {
   id: string;
@@ -52,55 +51,46 @@ const Training: React.FC = () => {
   const [loadingDetails, setLoadingDetails] = useState<Set<string>>(new Set());
   const [registering, setRegistering] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [totalGraduates] = useState(247); // Mock data - replace with actual data from database
-  
+  const [totalGraduates] = useState(247);
+
   const { user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchCourses();
-    if (user) {
-      fetchEnrollments();
-    }
+    if (user) fetchEnrollments();
   }, [user]);
 
-  // Filter courses when courses or selectedFilter changes
   useEffect(() => {
-    if (selectedFilter === 'all') {
-      setFilteredCourses(courses);
-    } else {
-      setFilteredCourses(courses.filter(course => course.type === selectedFilter));
-    }
+    if (selectedFilter === 'all') setFilteredCourses(courses);
+    else setFilteredCourses(courses.filter(c => c.type === selectedFilter));
   }, [courses, selectedFilter]);
 
-const fetchCourses = async () => {
-  try {
-    const { data, error } = await supabase
-      .from('courses_ats_display')     // <-- use the view
-      .select('*')                     // includes start_date_display
-      .eq('is_active', true)
-      .order('created_at', { ascending: false });
+  const fetchCourses = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('courses_ats_display')
+        .select('*')
+        .eq('is_active', true)
+        .order('created_at', { ascending: false });
 
-    if (error) throw error;
-    setCourses(data || []);
-  } catch (error) {
-    console.error('Error fetching courses:', error);
-    setMessage({ type: 'error', text: 'Failed to load courses' });
-  } finally {
-    setLoading(false);
-  }
-};
-
+      if (error) throw error;
+      setCourses(data || []);
+    } catch (error) {
+      console.error('Error fetching courses:', error);
+      setMessage({ type: 'error', text: 'Failed to load courses' });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const fetchEnrollments = async () => {
     if (!user) return;
-
     try {
       const { data, error } = await supabase
         .from('enrollments')
         .select('*')
         .eq('student_id', user.id);
-
       if (error) throw error;
       setEnrollments(data || []);
     } catch (error) {
@@ -110,44 +100,35 @@ const fetchCourses = async () => {
 
   const fetchCourseDetails = async (courseId: string) => {
     if (courseDetails[courseId]) return;
-
     setLoadingDetails(prev => new Set(prev).add(courseId));
-
     try {
-const { data, error } = await supabase
-  .from('courses_ats_display')   // use the view so we get start_date_display
-  .select('*')
-  .eq('id', courseId)
-  .single();
-
+      const { data, error } = await supabase
+        .from('courses_ats_display')
+        .select('*')
+        .eq('id', courseId)
+        .single();
       if (error) throw error;
-      
-      setCourseDetails(prev => ({
-        ...prev,
-        [courseId]: data
-      }));
+      setCourseDetails(prev => ({ ...prev, [courseId]: data }));
     } catch (error) {
       console.error('Error fetching course details:', error);
       setMessage({ type: 'error', text: 'Failed to load course details' });
     } finally {
       setLoadingDetails(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(courseId);
-        return newSet;
+        const next = new Set(prev);
+        next.delete(courseId);
+        return next;
       });
     }
   };
 
   const handleLearnMore = async (courseId: string) => {
     if (flippedCards.has(courseId)) {
-      // Flip back
       setFlippedCards(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(courseId);
-        return newSet;
+        const next = new Set(prev);
+        next.delete(courseId);
+        return next;
       });
     } else {
-      // Flip to details
       await fetchCourseDetails(courseId);
       setFlippedCards(prev => new Set(prev).add(courseId));
     }
@@ -158,92 +139,69 @@ const { data, error } = await supabase
       navigate('/login');
       return;
     }
-
-    // Check if already enrolled
-    const isEnrolled = enrollments.some(enrollment => enrollment.course_id === courseId);
-    if (isEnrolled) {
+    const already = enrollments.some(e => e.course_id === courseId);
+    if (already) {
       setMessage({ type: 'error', text: 'You are already registered for this course' });
       return;
     }
-
     setRegistering(prev => new Set(prev).add(courseId));
-
     try {
-      const { error } = await supabase
-        .from('enrollments')
-        .insert({
-          student_id: user.id,
-          course_id: courseId
-        });
-
+      const { error } = await supabase.from('enrollments').insert({
+        student_id: user.id,
+        course_id: courseId,
+      });
       if (error) throw error;
-
       setMessage({ type: 'success', text: 'You have been registered for this course.' });
-      await fetchEnrollments(); // Refresh enrollments
+      await fetchEnrollments();
     } catch (error) {
       console.error('Error registering for course:', error);
       setMessage({ type: 'error', text: 'Failed to register for course' });
     } finally {
       setRegistering(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(courseId);
-        return newSet;
+        const next = new Set(prev);
+        next.delete(courseId);
+        return next;
       });
     }
   };
 
-  const isEnrolled = (courseId: string) => {
-    return enrollments.some(enrollment => enrollment.course_id === courseId);
-  };
+  const isEnrolled = (courseId: string) =>
+    enrollments.some(enrollment => enrollment.course_id === courseId);
 
   const formatWhatsIncluded = (whatsIncluded: any) => {
     if (!whatsIncluded) return null;
-    
     try {
       if (typeof whatsIncluded === 'string') {
         const parsed = JSON.parse(whatsIncluded);
-        if (Array.isArray(parsed)) {
-          return parsed;
-        }
+        if (Array.isArray(parsed)) return parsed;
       } else if (Array.isArray(whatsIncluded)) {
         return whatsIncluded;
       }
-    } catch (error) {
-      console.error('Error parsing whats_included:', error);
+    } catch (e) {
+      console.error('Error parsing whats_included:', e);
     }
-    
     return null;
-  };
+    };
 
   const formatPrice = (price: number, currency: string) => {
     if (!price) return 'Contact for pricing';
     return `${currency || 'USD'} $${price.toLocaleString()}`;
   };
 
-  const shouldShowPrice = (course: Course) => {
-    return course.is_online === true;
-  };
+  const shouldShowPrice = (course: Course) => course.is_online === true;
 
   const formatDate = (dateString: string) => {
     if (!dateString) return 'TBD';
     return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+      year: 'numeric', month: 'long', day: 'numeric'
     });
   };
 
   const getFilteredStats = () => {
     const totalCourses = courses.length;
-    const RegulationCourses = courses.filter(course => course.type === 'Regulation').length;
-    const applicationCourses = courses.filter(course => course.type === 'Application').length;
-    
-    return {
-      total: totalCourses,
-      Regulation: RegulationCourses,
-      application: applicationCourses,
-      graduates: totalGraduates
-    };
+    const RegulationCourses = courses.filter(c => c.type === 'Regulation').length;
+    const applicationCourses = courses.filter(c => c.type === 'Application').length;
+    return { total: totalCourses, Regulation: RegulationCourses, application: applicationCourses, graduates: totalGraduates };
   };
 
   const stats = getFilteredStats();
@@ -278,9 +236,7 @@ const { data, error } = await supabase
               <button
                 onClick={() => setSelectedFilter('all')}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  selectedFilter === 'all'
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  selectedFilter === 'all' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 All Courses
@@ -288,9 +244,7 @@ const { data, error } = await supabase
               <button
                 onClick={() => setSelectedFilter('Regulation')}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  selectedFilter === 'Regulation'
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  selectedFilter === 'Regulation' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 Regulation
@@ -298,9 +252,7 @@ const { data, error } = await supabase
               <button
                 onClick={() => setSelectedFilter('Application')}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  selectedFilter === 'Application'
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  selectedFilter === 'Application' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 Application
@@ -314,47 +266,32 @@ const { data, error } = await supabase
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <div className="flex items-center justify-center mb-3">
-              <BookOpen className="h-8 w-8 text-blue-600" />
-            </div>
+            <div className="flex items-center justify-center mb-3"><BookOpen className="h-8 w-8 text-blue-600" /></div>
             <div className="text-2xl font-bold text-gray-900 mb-1">{stats.total}</div>
             <div className="text-sm text-gray-600">Total Courses</div>
           </div>
-          
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <div className="flex items-center justify-center mb-3">
-              <Filter className="h-8 w-8 text-green-600" />
-            </div>
+            <div className="flex items-center justify-center mb-3"><Filter className="h-8 w-8 text-green-600" /></div>
             <div className="text-2xl font-bold text-gray-900 mb-1">{stats.Regulation}</div>
             <div className="text-sm text-gray-600">Regulation</div>
           </div>
-          
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <div className="flex items-center justify-center mb-3">
-              <Award className="h-8 w-8 text-purple-600" />
-            </div>
+            <div className="flex items-center justify-center mb-3"><Award className="h-8 w-8 text-purple-600" /></div>
             <div className="text-2xl font-bold text-gray-900 mb-1">{stats.application}</div>
             <div className="text-sm text-gray-600">Application</div>
           </div>
-          
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <div className="flex items-center justify-center mb-3">
-              <GraduationCap className="h-8 w-8 text-yellow-600" />
-            </div>
+            <div className="flex items-center justify-center mb-3"><GraduationCap className="h-8 w-8 text-yellow-600" /></div>
             <div className="text-2xl font-bold text-gray-900 mb-1">{stats.graduates}</div>
             <div className="text-sm text-gray-600">Graduates</div>
           </div>
         </div>
       </div>
 
-      {/* Message Display */}
+      {/* Message */}
       {message && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className={`p-4 rounded-md ${
-            message.type === 'success' 
-              ? 'bg-green-50 text-green-800 border border-green-200' 
-              : 'bg-red-50 text-red-800 border border-red-200'
-          }`}>
+          <div className={`p-4 rounded-md ${message.type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}`}>
             {message.text}
           </div>
         </div>
@@ -369,78 +306,66 @@ const { data, error } = await supabase
             const isLoadingDetails = loadingDetails.has(course.id);
             const isRegistering = registering.has(course.id);
             const enrolled = isEnrolled(course.id);
-console.log("Course title:", course.title);
 
             return (
               <div key={course.id} className="relative h-96 perspective-1000">
-                <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
-                  isFlipped ? 'rotate-y-180' : ''
-                }`}>
+                <div className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                   {/* Front of Card */}
                   <div className="absolute inset-0 w-full h-full backface-hidden bg-white rounded-lg shadow-lg overflow-hidden">
                     <div className="p-6 h-full flex flex-col">
-                      {/* Course Type Badge */}
+                      {/* Badge */}
                       <div className="flex items-center justify-between mb-4">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                          course.type === 'Regulation' 
-                            ? 'bg-blue-100 text-blue-800' 
-                            : 'bg-green-100 text-green-800'
+                          course.type === 'Regulation' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'
                         }`}>
                           {course.type === 'Regulation' ? 'Regulation' : 'Application'}
                         </span>
                         {enrolled && (
                           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                            <Award className="w-3 h-3 mr-1" />
-                            Enrolled
+                            <Award className="w-3 h-3 mr-1" /> Enrolled
                           </span>
                         )}
                       </div>
 
-                      {/* Course Title */}
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                        {course.title}
-                      </h3>
+                      {/* Title */}
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">{course.title}</h3>
 
-{/* Course Info (Length, Next Date, Description, Prerequisites) */}
-<div className="space-y-2 mb-6">
-  {/* Length of course */}
-  {course.duration && (
-    <div className="flex items-center text-sm text-gray-500">
-      <Clock className="w-4 h-4 mr-2" />
-      {course.duration}
-    </div>
-  )}
+                      {/* Front info: Length, Next Date, Prerequisites */}
+                      <div className="space-y-2 mb-6">
+                        {course.duration && (
+                          <div className="flex items-center text-sm text-gray-500">
+                            <Clock className="w-4 h-4 mr-2" />
+                            {course.duration}
+                          </div>
+                        )}
 
-  {/* Next date (rolling Monday) */}
-  {(() => {
-    const dateToShow = course.start_date_display ?? course.start_date;
-    return dateToShow ? (
-      <div className="flex items-center text-sm text-gray-500">
-        <Calendar className="w-4 h-4 mr-2" />
-        {formatDate(dateToShow)}
-      </div>
-    ) : null;
-  })()}
+                        {(() => {
+                          const dateToShow = course.start_date_display ?? course.start_date;
+                          return dateToShow ? (
+                            <div className="flex items-center text-sm text-gray-500">
+                              <Calendar className="w-4 h-4 mr-2" />
+                              {formatDate(dateToShow)}
+                            </div>
+                          ) : null;
+                        })()}
 
-  {/* Prerequisites (combined) */}
-  {(() => {
-    const prereqParts = [
-      course.experience_requirement,
-      course.document_requirement,
-      course.equipment_requirement,
-      course.age_requirement,
-    ].filter(Boolean) as string[];
-    if (prereqParts.length === 0) return null;
-    return (
-      <div className="text-sm text-gray-500">
-        <span className="font-medium">Prerequisites:</span> {prereqParts.join(' · ')}
-      </div>
-    );
-  })()}
-</div>
+                        {(() => {
+                          const prereqParts = [
+                            course.experience_requirement,
+                            course.document_requirement,
+                            course.equipment_requirement,
+                            course.age_requirement,
+                          ].filter(Boolean) as string[];
+                          if (prereqParts.length === 0) return null;
+                          return (
+                            <div className="text-sm text-gray-500">
+                              <span className="font-medium">Prerequisites:</span> {prereqParts.join(' · ')}
+                            </div>
+                          );
+                        })()}
+                      </div>
 
-
-                      {/* Action Buttons */}
+                      {/* Actions */}
                       <div className="flex space-x-3">
                         <button
                           onClick={() => handleLearnMore(course.id)}
@@ -450,123 +375,97 @@ console.log("Course title:", course.title);
                           <BookOpen className="w-4 h-4 mr-2" />
                           Learn More
                         </button>
-{/*                         <button
-                          onClick={() => handleRegisterNow(course.id)}
-                          disabled={enrolled || isRegistering}
-                          className={`flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center ${
-                            enrolled
-                              ? 'bg-green-100 text-green-800 cursor-not-allowed'
-                              : 'bg-blue-600 text-white hover:bg-blue-700'
-                          }`}
-                          aria-label={enrolled ? 'Already registered' : `Register for ${course.title}`}
+
+                        <a
+                          href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
                         >
-                          {isRegistering ? (
-                            <Loader2 className="w-4 h-4 animate-spin" />
-                          ) : enrolled ? (
-                            'Enrolled'
-                          ) : (
-                            <>
-                              <ChevronRight className="w-4 h-4 mr-2" />
-                              Register Now
-                            </>
-                          )}
-                        </button> */}
-<a
-href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
->
-  <ChevronRight className="w-4 h-4 mr-2" />
-  Register Now
-</a>
-
-
+                          <ChevronRight className="w-4 h-4 mr-2" />
+                          Register Now
+                        </a>
                       </div>
                     </div>
                   </div>
 
                   {/* Back of Card */}
-{/* Back of Card */}
-<div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg shadow-lg overflow-hidden">
-  <div className="p-6 h-full overflow-y-auto">
-    {isLoadingDetails ? (
-      <div className="flex items-center justify-center h-full">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
-      </div>
-    ) : details ? (
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">{details.title}</h3>
+                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="p-6 h-full overflow-y-auto">
+                      {isLoadingDetails ? (
+                        <div className="flex items-center justify-center h-full">
+                          <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                        </div>
+                      ) : details ? (
+                        <div className="space-y-4">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-4">{details.title}</h3>
 
-        {/* KEEP: Description (not shown on front) */}
-        {details.description && (
-          <div>
-            <h4 className="font-medium text-gray-900 mb-1">Description</h4>
-            <p className="text-sm text-gray-600">{details.description}</p>
-          </div>
-        )}
+                          {details.description && (
+                            <div>
+                              <h4 className="font-medium text-gray-900 mb-1">Description</h4>
+                              <p className="text-sm text-gray-600">{details.description}</p>
+                            </div>
+                          )}
 
-        {/* KEEP: Level */}
-        {details.level && (
-          <div>
-            <h4 className="font-medium text-gray-900 mb-1">Level</h4>
-            <p className="text-sm text-gray-600">{details.level}</p>
-          </div>
-        )}
+                          {details.level && (
+                            <div>
+                              <h4 className="font-medium text-gray-900 mb-1">Level</h4>
+                              <p className="text-sm text-gray-600">{details.level}</p>
+                            </div>
+                          )}
 
-        {/* OMIT: Duration / Next Date / Prerequisites (shown on front) */}
-        {/* (Removed age_requirement, equipment_requirement, experience_requirement, document_requirement, start_date) */}
+                          {details.suggested_preparation && (
+                            <div>
+                              <h4 className="font-medium text-gray-900 mb-1">Suggested Preparation</h4>
+                              <p className="text-sm text-gray-600">{details.suggested_preparation}</p>
+                            </div>
+                          )}
 
-        {/* Suggested Preparation */}
-        {details.suggested_preparation && (
-          <div>
-            <h4 className="font-medium text-gray-900 mb-1">Suggested Preparation</h4>
-            <p className="text-sm text-gray-600">{details.suggested_preparation}</p>
-          </div>
-        )}
+                          {details.price && shouldShowPrice(details) && (
+                            <div>
+                              <h4 className="font-medium text-gray-900 mb-1">Price</h4>
+                              <p className="text-sm text-gray-600">{formatPrice(details.price, details.currency)}</p>
+                            </div>
+                          )}
 
-        {/* Price (same rule as before: only for online) */}
-        {details.price && shouldShowPrice(details) && (
-          <div>
-            <h4 className="font-medium text-gray-900 mb-1">Price</h4>
-            <p className="text-sm text-gray-600">{formatPrice(details.price, details.currency)}</p>
-          </div>
-        )}
+                          {details.whats_included && (
+                            <div>
+                              <h4 className="font-medium text-gray-900 mb-1">What's Included</h4>
+                              {(() => {
+                                const included = formatWhatsIncluded(details.whats_included);
+                                return included ? (
+                                  <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
+                                    {included.map((item: string, index: number) => (
+                                      <li key={index}>{item}</li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  <p className="text-sm text-gray-600">Information not available</p>
+                                );
+                              })()}
+                            </div>
+                          )}
 
-        {/* What's Included */}
-        {details.whats_included && (
-          <div>
-            <h4 className="font-medium text-gray-900 mb-1">What's Included</h4>
-            {(() => {
-              const included = formatWhatsIncluded(details.whats_included);
-              return included ? (
-                <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
-                  {included.map((item: string, index: number) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm text-gray-600">Information not available</p>
-              );
-            })()}
-          </div>
-        )}
-
-        <button
-          onClick={() => handleLearnMore(course.id)}
-          className="w-full mt-6 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
-          aria-label="Back to course summary"
-        >
-          Back to Summary
-        </button>
-      </div>
-    ) : (
-      <div className="flex items-center justify-center h-full">
-        <p className="text-gray-500">Failed to load course details</p>
-      </div>
-    )}
-  </div>
-</div>
+                          <button
+                            onClick={() => handleLearnMore(course.id)}
+                            className="w-full mt-6 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
+                            aria-label="Back to course summary"
+                          >
+                            Back to Summary
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center h-full">
+                          <p className="text-gray-500">Failed to load course details</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
 
         {filteredCourses.length === 0 && !loading && (
           <div className="text-center py-12">
@@ -575,10 +474,9 @@ href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"
               {selectedFilter === 'all' ? 'No courses available' : `No ${selectedFilter} courses available`}
             </h3>
             <p className="text-gray-500">
-              {selectedFilter === 'all' 
-                ? 'Check back later for new training opportunities.' 
-                : `Try selecting a different filter or check back later for new ${selectedFilter} courses.`
-              }
+              {selectedFilter === 'all'
+                ? 'Check back later for new training opportunities.'
+                : `Try selecting a different filter or check back later for new ${selectedFilter} courses.`}
             </p>
           </div>
         )}
