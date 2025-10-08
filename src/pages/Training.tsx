@@ -417,12 +417,15 @@ console.log("Course title:", course.title);
                             Max {course.max_students} students
                           </div>
                         )}
-                        {course.start_date && (
-                          <div className="flex items-center text-sm text-gray-500">
-                            <Calendar className="w-4 h-4 mr-2" />
-                            {formatDate(course.start_date)}
-                          </div>
-                        )}
+{(() => {
+  const dateToShow = course.start_date_display ?? course.start_date;
+  return dateToShow ? (
+    <div className="flex items-center text-sm text-gray-500">
+      <Calendar className="w-4 h-4 mr-2" />
+      {formatDate(dateToShow)}
+    </div>
+  ) : null;
+})()}
                         {course.price && shouldShowPrice(course) && (
                           <div className="flex items-center text-sm text-gray-500">
                             <DollarSign className="w-4 h-4 mr-2" />
