@@ -487,89 +487,86 @@ href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"
                   </div>
 
                   {/* Back of Card */}
-<div className="space-y-4">
-  <h3 className="text-lg font-semibold text-gray-900 mb-4">{details.title}</h3>
+{/* Back of Card */}
+<div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg shadow-lg overflow-hidden">
+  <div className="p-6 h-full overflow-y-auto">
+    {isLoadingDetails ? (
+      <div className="flex items-center justify-center h-full">
+        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+      </div>
+    ) : details ? (
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">{details.title}</h3>
 
-  {/* KEEP: Level */}
-  {details.level && (
-    <div>
-      <h4 className="font-medium text-gray-900 mb-1">Level</h4>
-      <p className="text-sm text-gray-600">{details.level}</p>
-    </div>
-  )}
+        {/* KEEP: Description (not shown on front) */}
+        {details.description && (
+          <div>
+            <h4 className="font-medium text-gray-900 mb-1">Description</h4>
+            <p className="text-sm text-gray-600">{details.description}</p>
+          </div>
+        )}
 
-  {/* KEEP: Age Requirement */}
-  {details.age_requirement && (
-    <div>
-      <h4 className="font-medium text-gray-900 mb-1">Age Requirement</h4>
-      <p className="text-sm text-gray-600">{details.age_requirement}</p>
-    </div>
-  )}
+        {/* KEEP: Level */}
+        {details.level && (
+          <div>
+            <h4 className="font-medium text-gray-900 mb-1">Level</h4>
+            <p className="text-sm text-gray-600">{details.level}</p>
+          </div>
+        )}
 
-  {/* KEEP: Equipment Required */}
-  {details.equipment_requirement && (
-    <div>
-      <h4 className="font-medium text-gray-900 mb-1">Equipment Required</h4>
-      <p className="text-sm text-gray-600">{details.equipment_requirement}</p>
-    </div>
-  )}
+        {/* OMIT: Duration / Next Date / Prerequisites (shown on front) */}
+        {/* (Removed age_requirement, equipment_requirement, experience_requirement, document_requirement, start_date) */}
 
-  {/* KEEP: Suggested Preparation */}
-  {details.suggested_preparation && (
-    <div>
-      <h4 className="font-medium text-gray-900 mb-1">Suggested Preparation</h4>
-      <p className="text-sm text-gray-600">{details.suggested_preparation}</p>
-    </div>
-  )}
+        {/* Suggested Preparation */}
+        {details.suggested_preparation && (
+          <div>
+            <h4 className="font-medium text-gray-900 mb-1">Suggested Preparation</h4>
+            <p className="text-sm text-gray-600">{details.suggested_preparation}</p>
+          </div>
+        )}
 
-  {/* KEEP: Price (same rule you had: show for online) */}
-  {details.price && shouldShowPrice(details) && (
-    <div>
-      <h4 className="font-medium text-gray-900 mb-1">Price</h4>
-      <p className="text-sm text-gray-600">{formatPrice(details.price, details.currency)}</p>
-    </div>
-  )}
+        {/* Price (same rule as before: only for online) */}
+        {details.price && shouldShowPrice(details) && (
+          <div>
+            <h4 className="font-medium text-gray-900 mb-1">Price</h4>
+            <p className="text-sm text-gray-600">{formatPrice(details.price, details.currency)}</p>
+          </div>
+        )}
 
-  {/* KEEP: What's Included */}
-  {details.whats_included && (
-    <div>
-      <h4 className="font-medium text-gray-900 mb-1">What's Included</h4>
-      {(() => {
-        const included = formatWhatsIncluded(details.whats_included);
-        return included ? (
-          <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
-            {included.map((item: string, index: number) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-sm text-gray-600">Information not available</p>
-        );
-      })()}
-    </div>
-  )}
+        {/* What's Included */}
+        {details.whats_included && (
+          <div>
+            <h4 className="font-medium text-gray-900 mb-1">What's Included</h4>
+            {(() => {
+              const included = formatWhatsIncluded(details.whats_included);
+              return included ? (
+                <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
+                  {included.map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm text-gray-600">Information not available</p>
+              );
+            })()}
+          </div>
+        )}
 
-  <button
-    onClick={() => handleLearnMore(course.id)}
-    className="w-full mt-6 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
-    aria-label="Back to course summary"
-  >
-    Back to Summary
-  </button>
+        <button
+          onClick={() => handleLearnMore(course.id)}
+          className="w-full mt-6 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
+          aria-label="Back to course summary"
+        >
+          Back to Summary
+        </button>
+      </div>
+    ) : (
+      <div className="flex items-center justify-center h-full">
+        <p className="text-gray-500">Failed to load course details</p>
+      </div>
+    )}
+  </div>
 </div>
-
-                      ) : (
-                        <div className="flex items-center justify-center h-full">
-                          <p className="text-gray-500">Failed to load course details</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
 
         {filteredCourses.length === 0 && !loading && (
           <div className="text-center py-12">
