@@ -5,7 +5,7 @@ date: 2025-08-28
 draft: false
 slug: "protecting-our-lands-drone-training"
 cover: "/images/blog/protecting-our-lands-drone-training-cover.png"
-published: true
+published: false
 ---
 
 
