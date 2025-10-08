@@ -401,36 +401,53 @@ console.log("Course title:", course.title);
                         {course.title}
                       </h3>
 
-                      {/* Course Info */}
-                      <div className="space-y-2 mb-6">
-                        {course.duration && (
-                          <div className="flex items-center text-sm text-gray-500">
-                            <Clock className="w-4 h-4 mr-2" />
-                            {course.duration}
-                          </div>
-                        )}
-                        {course.max_students && (
-                          <div className="flex items-center text-sm text-gray-500">
-                            <Users className="w-4 h-4 mr-2" />
-                            Max {course.max_students} students
-                          </div>
-                        )}
-{(() => {
-  const dateToShow = course.start_date_display ?? course.start_date;
-  return dateToShow ? (
+{/* Course Info (Length, Next Date, Description, Prerequisites) */}
+<div className="space-y-2 mb-6">
+  {/* Length of course */}
+  {course.duration && (
     <div className="flex items-center text-sm text-gray-500">
-      <Calendar className="w-4 h-4 mr-2" />
-      {formatDate(dateToShow)}
+      <Clock className="w-4 h-4 mr-2" />
+      {course.duration}
     </div>
-  ) : null;
-})()}
-                        {course.price && shouldShowPrice(course) && (
-                          <div className="flex items-center text-sm text-gray-500">
-                            <DollarSign className="w-4 h-4 mr-2" />
-                            {formatPrice(course.price, course.currency)}
-                          </div>
-                        )}
-                      </div>
+  )}
+
+  {/* Next date (rolling Monday) */}
+  {(() => {
+    const dateToShow = course.start_date_display ?? course.start_date;
+    return dateToShow ? (
+      <div className="flex items-center text-sm text-gray-500">
+        <Calendar className="w-4 h-4 mr-2" />
+        {formatDate(dateToShow)}
+      </div>
+    ) : null;
+  })()}
+
+  {/* Description (shortened on the front) */}
+  {course.description && (
+    <p className="text-sm text-gray-600">
+      {course.description.length > 160
+        ? `${course.description.slice(0, 160)}…`
+        : course.description}
+    </p>
+  )}
+
+  {/* Prerequisites (combined) */}
+  {(() => {
+    const prereqParts = [
+      course.experience_requirement,
+      course.document_requirement,
+      course.equipment_requirement,
+      course.age_requirement,
+    ].filter(Boolean) as string[];
+    if (prereqParts.length === 0) return null;
+    return (
+      <div className="text-sm text-gray-500">
+        <span className="font-medium">Prerequisites:</span> {prereqParts.join(' · ')}
+      </div>
+    );
+  })()}
+</div>
+
 
                       {/* Action Buttons */}
                       <div className="flex space-x-3">
