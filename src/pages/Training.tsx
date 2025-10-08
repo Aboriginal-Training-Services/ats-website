@@ -12,8 +12,6 @@ const THINKIFIC_URLS: Record<string, string> = {
   "Drone Pilot Certificate – Advanced Operations (In-Person)":"https://learn.abtraining.ca/courses/advanced-rpas-prep-1-on-1-training",
 };
 
-
-
 interface Course {
   id: string;
   title: string;
@@ -116,11 +114,11 @@ const fetchCourses = async () => {
     setLoadingDetails(prev => new Set(prev).add(courseId));
 
     try {
-      const { data, error } = await supabase
-        .from('courses_ats')
-        .select('*')
-        .eq('id', courseId)
-        .single();
+const { data, error } = await supabase
+  .from('courses_ats_display')   // use the view so we get start_date_display
+  .select('*')
+  .eq('id', courseId)
+  .single();
 
       if (error) throw error;
       
