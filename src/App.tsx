@@ -15,7 +15,7 @@ import PracticeQuestions from './pages/PracticeQuestions';
 import PracticeExam from './pages/PracticeExam';
 import SignUp from './pages/SignUp';
 import Blog from './pages/Blog';
-import BlogPost from './pages/Blogpost';
+import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
