@@ -75,23 +75,24 @@ const Training: React.FC = () => {
     }
   }, [courses, selectedFilter]);
 
-  const fetchCourses = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('courses_ats')
-        .select('*')
-        .eq('is_active', true)
-        .order('created_at', { ascending: false });
+const fetchCourses = async () => {
+  try {
+    const { data, error } = await supabase
+      .from('courses_ats_display')     // <-- use the view
+      .select('*')                     // includes start_date_display
+      .eq('is_active', true)
+      .order('created_at', { ascending: false });
 
-      if (error) throw error;
-      setCourses(data || []);
-    } catch (error) {
-      console.error('Error fetching courses:', error);
-      setMessage({ type: 'error', text: 'Failed to load courses' });
-    } finally {
-      setLoading(false);
-    }
-  };
+    if (error) throw error;
+    setCourses(data || []);
+  } catch (error) {
+    console.error('Error fetching courses:', error);
+    setMessage({ type: 'error', text: 'Failed to load courses' });
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const fetchEnrollments = async () => {
     if (!user) return;
