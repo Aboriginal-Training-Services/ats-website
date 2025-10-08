@@ -141,14 +141,16 @@ export default function BlogPost() {
       </div>
 
       {/* Cover */}
-      {frontmatter.cover && (
-        <img
-          src={frontmatter.cover}
-          alt={frontmatter.title}
-          className="w-full h-64 md:h-96 object-cover rounded-xl mb-6"
-          loading="eager"
-        />
-      )}
+{frontmatter.cover && (
+  <div className="w-full aspect-video mb-6">
+    <img
+      src={frontmatter.cover}
+      alt={frontmatter.title}
+      loading="eager"
+      className="w-full h-full object-cover rounded-xl"
+    />
+  </div>
+)}
 
       {/* Title + meta */}
       <header className="mb-6">
@@ -165,22 +167,27 @@ export default function BlogPost() {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
-          components={{
-            img: ({ node, ...props }) => (
-              <img
-                {...props}
-                src={resolveImageSrc(props.src)}
-                alt={props.alt ?? ""}
-                loading="lazy"
-                className="rounded-lg my-6"
-              />
-            ),
-            a: ({ node, ...props }) => (
-              <a {...props} target="_blank" rel="noopener noreferrer" />
-            ),
-            h2: ({ node, ...props }) => <h2 {...props} className="scroll-mt-24" />,
-            h3: ({ node, ...props }) => <h3 {...props} className="scroll-mt-24" />,
-          }}
+components={{
+  img: ({ node, ...props }) => (
+    <div className="w-full my-6">
+      <div className="w-full aspect-video">
+        <img
+          {...props}
+          src={resolveImageSrc(props.src)}
+          alt={props.alt ?? ""}
+          loading="lazy"
+          className="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+    </div>
+  ),
+  a: ({ node, ...props }) => (
+    <a {...props} target="_blank" rel="noopener noreferrer" />
+  ),
+  h2: ({ node, ...props }) => <h2 {...props} className="scroll-mt-24" />,
+  h3: ({ node, ...props }) => <h3 {...props} className="scroll-mt-24" />,
+}}
+
         >
           {content}
         </ReactMarkdown>
