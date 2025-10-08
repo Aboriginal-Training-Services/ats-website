@@ -29,11 +29,13 @@ interface Course {
   currency: string;
   duration: string;
   max_students: number;
-  start_date: string;
+  start_date: string | null;            // keep existing (stored value)
+  start_date_display?: string | null;   // NEW: computed by the view
   whats_included: any;
   is_active: boolean;
   is_online: boolean;
 }
+
 
 interface Enrollment {
   id: string;
