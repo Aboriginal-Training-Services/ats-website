@@ -487,115 +487,77 @@ href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"
                   </div>
 
                   {/* Back of Card */}
-                  <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div className="p-6 h-full overflow-y-auto">
-                      {isLoadingDetails ? (
-                        <div className="flex items-center justify-center h-full">
-                          <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
-                        </div>
-                      ) : details ? (
-                        <div className="space-y-4">
-                          <h3 className="text-lg font-semibold text-gray-900 mb-4">{details.title}</h3>
-                          
-                          {details.description && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Description</h4>
-                              <p className="text-sm text-gray-600">{details.description}</p>
-                            </div>
-                          )}
+<div className="space-y-4">
+  <h3 className="text-lg font-semibold text-gray-900 mb-4">{details.title}</h3>
 
-                          {details.level && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Level</h4>
-                              <p className="text-sm text-gray-600">{details.level}</p>
-                            </div>
-                          )}
-
-                          {details.age_requirement && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Age Requirement</h4>
-                              <p className="text-sm text-gray-600">{details.age_requirement}</p>
-                            </div>
-                          )}
-
-                          {details.experience_requirement && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Experience Required</h4>
-                              <p className="text-sm text-gray-600">{details.experience_requirement}</p>
-                            </div>
-                          )}
-
-                          {details.equipment_requirement && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Equipment Required</h4>
-                              <p className="text-sm text-gray-600">{details.equipment_requirement}</p>
-                            </div>
-                          )}
-
-                          {details.document_requirement && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Documents Required</h4>
-                              <p className="text-sm text-gray-600">{details.document_requirement}</p>
-                            </div>
-                          )}
-
-                          {details.suggested_preparation && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Suggested Preparation</h4>
-                              <p className="text-sm text-gray-600">{details.suggested_preparation}</p>
-                            </div>
-                          )}
-
-                          {details.price && shouldShowPrice(details) && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Price</h4>
-                              <p className="text-sm text-gray-600">{formatPrice(details.price, details.currency)}</p>
-                            </div>
-                          )}
-
-                          {details.duration && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Duration</h4>
-                              <p className="text-sm text-gray-600">{details.duration}</p>
-                            </div>
-                          )}
-
-{(() => {
-  const dateToShow = details.start_date_display ?? details.start_date;
-  return dateToShow ? (
+  {/* KEEP: Level */}
+  {details.level && (
     <div>
-      <h4 className="font-medium text-gray-900 mb-1">Start Date</h4>
-      <p className="text-sm text-gray-600">{formatDate(dateToShow)}</p>
+      <h4 className="font-medium text-gray-900 mb-1">Level</h4>
+      <p className="text-sm text-gray-600">{details.level}</p>
     </div>
-  ) : null;
-})()}
+  )}
 
-                          {details.whats_included && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">What's Included</h4>
-                              {(() => {
-                                const included = formatWhatsIncluded(details.whats_included);
-                                return included ? (
-                                  <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
-                                    {included.map((item: string, index: number) => (
-                                      <li key={index}>{item}</li>
-                                    ))}
-                                  </ul>
-                                ) : (
-                                  <p className="text-sm text-gray-600">Information not available</p>
-                                );
-                              })()}
-                            </div>
-                          )}
+  {/* KEEP: Age Requirement */}
+  {details.age_requirement && (
+    <div>
+      <h4 className="font-medium text-gray-900 mb-1">Age Requirement</h4>
+      <p className="text-sm text-gray-600">{details.age_requirement}</p>
+    </div>
+  )}
 
-                          <button
-                            onClick={() => handleLearnMore(course.id)}
-                            className="w-full mt-6 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
-                            aria-label="Back to course summary"
-                          >
-                            Back to Summary
-                          </button>
-                        </div>
+  {/* KEEP: Equipment Required */}
+  {details.equipment_requirement && (
+    <div>
+      <h4 className="font-medium text-gray-900 mb-1">Equipment Required</h4>
+      <p className="text-sm text-gray-600">{details.equipment_requirement}</p>
+    </div>
+  )}
+
+  {/* KEEP: Suggested Preparation */}
+  {details.suggested_preparation && (
+    <div>
+      <h4 className="font-medium text-gray-900 mb-1">Suggested Preparation</h4>
+      <p className="text-sm text-gray-600">{details.suggested_preparation}</p>
+    </div>
+  )}
+
+  {/* KEEP: Price (same rule you had: show for online) */}
+  {details.price && shouldShowPrice(details) && (
+    <div>
+      <h4 className="font-medium text-gray-900 mb-1">Price</h4>
+      <p className="text-sm text-gray-600">{formatPrice(details.price, details.currency)}</p>
+    </div>
+  )}
+
+  {/* KEEP: What's Included */}
+  {details.whats_included && (
+    <div>
+      <h4 className="font-medium text-gray-900 mb-1">What's Included</h4>
+      {(() => {
+        const included = formatWhatsIncluded(details.whats_included);
+        return included ? (
+          <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
+            {included.map((item: string, index: number) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-gray-600">Information not available</p>
+        );
+      })()}
+    </div>
+  )}
+
+  <button
+    onClick={() => handleLearnMore(course.id)}
+    className="w-full mt-6 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
+    aria-label="Back to course summary"
+  >
+    Back to Summary
+  </button>
+</div>
+
                       ) : (
                         <div className="flex items-center justify-center h-full">
                           <p className="text-gray-500">Failed to load course details</p>
