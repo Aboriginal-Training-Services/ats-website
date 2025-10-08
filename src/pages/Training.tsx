@@ -422,15 +422,6 @@ console.log("Course title:", course.title);
     ) : null;
   })()}
 
-  {/* Description (shortened on the front) */}
-  {course.description && (
-    <p className="text-sm text-gray-600">
-      {course.description.length > 160
-        ? `${course.description.slice(0, 160)}…`
-        : course.description}
-    </p>
-  )}
-
   {/* Prerequisites (combined) */}
   {(() => {
     const prereqParts = [
