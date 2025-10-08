@@ -55,8 +55,6 @@ We sat in on public-safety and operations panels comparing workflows for emergen
 - **UTM/Remote ID**: think benefit, not just compliance (deconfliction for multi-team events).  
 - **Payload pragmatism**: pick sensors for the output product, not the spec sheet.
 
-![Public-safety & ops panel](/images/blog/aerial-evolution-2024-image-6.JPG)
-
 *Real-world workflows—BVLOS readiness, deconfliction/Remote ID, and lessons from multi-agency missions.*
 
 ## Connection & purpose
