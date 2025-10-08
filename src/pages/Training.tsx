@@ -552,12 +552,15 @@ href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"
                             </div>
                           )}
 
-                          {details.start_date && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Start Date</h4>
-                              <p className="text-sm text-gray-600">{formatDate(details.start_date)}</p>
-                            </div>
-                          )}
+{(() => {
+  const dateToShow = details.start_date_display ?? details.start_date;
+  return dateToShow ? (
+    <div>
+      <h4 className="font-medium text-gray-900 mb-1">Start Date</h4>
+      <p className="text-sm text-gray-600">{formatDate(dateToShow)}</p>
+    </div>
+  ) : null;
+})()}
 
                           {details.whats_included && (
                             <div>
