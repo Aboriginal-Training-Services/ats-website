@@ -169,7 +169,7 @@ export default function BlogPost() {
           rehypePlugins={[rehypeRaw]}
 components={{
   img: ({ node, ...props }) => (
-    <div className="w-full my-6">
+    <figure className="my-8">
       <div className="w-full aspect-video">
         <img
           {...props}
@@ -179,7 +179,12 @@ components={{
           className="w-full h-full object-cover rounded-lg"
         />
       </div>
-    </div>
+      {props.title ? (
+        <figcaption className="mt-2 text-center text-sm text-gray-500 italic">
+          {props.title}
+        </figcaption>
+      ) : null}
+    </figure>
   ),
   a: ({ node, ...props }) => (
     <a {...props} target="_blank" rel="noopener noreferrer" />
