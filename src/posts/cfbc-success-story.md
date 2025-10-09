@@ -3,7 +3,7 @@ title: "CFBC Success Story: Building Local Drone Capability"
 summary: "How Aboriginal Training Services training at the Construction Foundation of BC turned first flights into community-ready operations and real outcomes."
 slug: "cfbc-success-story"
 date: "2024-12-05"
-cover: "/images/blog/cfbc-success-story-image-01.jpg"
+cover: "/images/blog/cfbc-success-story-image-01.png"
 published: true
 ---
 
@@ -13,7 +13,7 @@ Across British Columbia, the **Construction Foundation of BC (CFBC)** invests in
 
 Within the program, participants earned safety credentials alongside flight competencies, building a foundation for reliable field operations. With small, stable platforms and structured workflows, learners developed habits that translate into clean data and safe decision-making on job sites. CFBC’s role as catalyst, combined with Aboriginal Training Services’ practical training model, helped turn first flights into first wins.
 
-![CFBC first contract highlight](/images/blog/cfbc-success-story-image-01.jpg)  
+![CFBC first contract highlight](/images/blog/cfbc-success-story-image-01.png)  
 *CFBC highlights a Sky Keepers graduate’s first contract—moving from training to paid industry work with H&K Agents and AltaGas.*
 
 The Sky Keepers cohort worked because every partner played a focused role. **CFBC** convened learners, removed barriers, and wrapped the training in essential workplace certifications. **Aboriginal Training Services** delivered the **Remotely Piloted Aircraft Systems (RPAS)** component—classroom foundations, safety discipline, and hands-on flight. **H&K Agents** provided the services connection and industry-facing expectations. And industry partners like **AltaGas** showed the destination: real job sites, real deliverables, and professional standards.
@@ -27,7 +27,7 @@ Learning accelerated because the cohort learned together. Participants compared 
 
 The visible takeaway is community: a group that not only completed formal training but also developed a rhythm—shared procedures, shared vocabulary, shared pride.
 
-![Cohort strength](/images/blog/cfbc-success-story-image-03.jpg)  
+![Cohort strength](/images/blog/cfbc-success-story-image-03.JPG)  
 *Cohort strength—shared procedures and peer coaching turn first flights into repeatable practice.*
 
 In class, participants built the mental model that makes field work calm and predictable. They learned aircraft systems, controller discipline, battery care, and the planning logic behind each mission. Navigation and airspace awareness were taught through scenarios: reading maps, interpreting constraints, and making conservative choices around people, structures, and weather.
@@ -48,7 +48,7 @@ Outdoors, pilots moved from careful hovers to slow translations and stable orbit
 
 These repetitions built muscle memory. By day’s end, the cohort could plan and fly short missions with a shared vocabulary and steady controllers.
 
-![First flights](/images/blog/cfbc-success-story-image-06.jpg)  
+![First flights](/images/blog/cfbc-success-story-image-06.JPG)  
 *First flights: structured launch zones, steady patterns, and predictable recoveries.*
 
 Training included winter conditions—low temperatures, changing light, and slick surfaces. Pilots learned to pre-warm batteries, shorten sorties, and keep conservative altitudes and speeds. Visual observers and the safety lead doubled down on communications, watching for bystanders and calling wind shifts or link warnings early.
@@ -90,7 +90,7 @@ Instruction was collaborative. Aboriginal Training Services facilitators modeled
 
 The result is a cohort that doesn’t just fly—they brief, execute, document, and hand off data professionally.
 
-![Guided by practitioners](/images/blog/cfbc-success-story-image-03.jpg)  
+![Guided by practitioners](/images/blog/cfbc-success-story-image-03.JPG)  
 *Guided by practitioners—navigation, planning, and controller discipline made practical.*
 
 Some sessions ran in local community spaces—a reminder that technology is most powerful when it’s rooted in place. The venue set a tone of respect and collaboration, where lived experience and local priorities shaped scenarios and flight plans.
