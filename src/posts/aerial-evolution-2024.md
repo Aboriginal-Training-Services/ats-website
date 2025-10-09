@@ -78,7 +78,7 @@ We sat in on public-safety and operations panels comparing workflows for emergen
 <br><br>
 
 ## Connection & purpose
-<br><br>
+<br>
 
 Conferences are also for connection. Alongside formal sessions, we joined a companion innovation gathering focused on technology and reconciliation—reminding us why this sector matters: safer communities, stronger stewardship, and dignified careers.
 <br><br>
