@@ -173,7 +173,7 @@ components={{
         src={resolveImageSrc(props.src)}
         alt={props.alt ?? ""}
         loading="lazy"
-        className="w-full h-auto rounded-lg"
+className="max-w-full h-auto mx-auto block rounded-lg"
       />
       {props.title ? (
         <figcaption className="mt-2 text-center text-sm text-gray-500 italic">
