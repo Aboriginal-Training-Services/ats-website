@@ -8,7 +8,7 @@ published: true
 ---
 
 Across British Columbia, the **Construction Foundation of BC (CFBC)** invests in programs that turn potential into careers. In the **Sky Keepers** cohort, that mission met its mark: participants learned to fly, plan missions, and apply drone skills to real work—then carried those skills straight into industry.
-<br><br> <br><br>  
+<br><br> 
 
 **Aboriginal Training Services** delivered the drone training component for Sky Keepers, blending classroom learning with hands-on flight practice and safety discipline. The result was more than certificates; it was confidence, professionalism, and a clear pathway into paid opportunities. One graduate, Tiffany, moved from program completion to a contract engagement supporting **H&K Agents** on imaging and mapping tasks for **AltaGas**—an early, concrete win that showcases what capability-building looks like when training is tied to real demands.
 <br><br> 
