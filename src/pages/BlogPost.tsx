@@ -142,14 +142,12 @@ export default function BlogPost() {
 
       {/* Cover */}
 {frontmatter.cover && (
-  <div className="w-full aspect-video mb-6">
-    <img
-      src={frontmatter.cover}
-      alt={frontmatter.title}
-      loading="eager"
-      className="w-full h-full object-cover rounded-xl"
-    />
-  </div>
+  <img
+    src={frontmatter.cover}
+    alt={frontmatter.title}
+    loading="eager"
+    className="w-full h-auto rounded-xl mb-6"
+  />
 )}
 
       {/* Title + meta */}
@@ -163,22 +161,20 @@ export default function BlogPost() {
       </header>
 
       {/* Content */}
-      <div className="prose prose-lg max-w-none dark:prose-invert">
+<div className="prose prose-lg max-w-none dark:prose-invert prose-p:my-4 prose-ul:my-4 prose-ol:my-4 prose-img:my-8">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
 components={{
   img: ({ node, ...props }) => (
     <figure className="my-8">
-      <div className="w-full aspect-video">
-        <img
-          {...props}
-          src={resolveImageSrc(props.src)}
-          alt={props.alt ?? ""}
-          loading="lazy"
-          className="w-full h-full object-cover rounded-lg"
-        />
-      </div>
+      <img
+        {...props}
+        src={resolveImageSrc(props.src)}
+        alt={props.alt ?? ""}
+        loading="lazy"
+        className="w-full h-auto rounded-lg"
+      />
       {props.title ? (
         <figcaption className="mt-2 text-center text-sm text-gray-500 italic">
           {props.title}
@@ -192,6 +188,7 @@ components={{
   h2: ({ node, ...props }) => <h2 {...props} className="scroll-mt-24" />,
   h3: ({ node, ...props }) => <h3 {...props} className="scroll-mt-24" />,
 }}
+
 
         >
           {content}
