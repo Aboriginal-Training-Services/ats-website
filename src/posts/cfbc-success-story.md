@@ -15,7 +15,8 @@ Within the program, participants earned safety credentials alongside flight comp
 <br>
 ![CFBC first contract highlight](/images/blog/cfbc-success-story-image-01.png)  
 *CFBC highlights a Sky Keepers graduate’s first contract—moving from training to paid industry work with H&K Agents and AltaGas.*
-<br>
+<br><br>
+
 The Sky Keepers cohort worked because every partner played a focused role. **CFBC** convened learners, removed barriers, and wrapped the training in essential workplace certifications. **Aboriginal Training Services** delivered the **Remotely Piloted Aircraft Systems (RPAS)** component—classroom foundations, safety discipline, and hands-on flight. **H&K Agents** provided the services connection and industry-facing expectations. And industry partners like **AltaGas** showed the destination: real job sites, real deliverables, and professional standards.
 <br>
 From orientation onward, participants could see a straight line from learning outcomes to paid work. They practiced mission planning and communications the same way they would on a client site, from pre-flight briefings and risk checks to controlled recoveries and field notes that translate cleanly into reports.
