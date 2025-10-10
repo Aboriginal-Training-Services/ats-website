@@ -3,7 +3,7 @@ title: "CFBC Success Story: Building Local Drone Capability"
 summary: "How Aboriginal Training Services training at the Construction Foundation of BC turned first flights into community-ready operations and real outcomes."
 slug: "cfbc-success-story"
 date: "2024-12-05"
-cover: "/images/blog/cfbc-success-story-image-01.png"
+cover: "/images/blog/cfbc-success-story-image-05.png"
 published: true
 ---
 
