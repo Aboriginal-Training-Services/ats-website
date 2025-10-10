@@ -19,8 +19,6 @@ For Aboriginal Training Services, it’s also where we keep our curriculum align
 *Welcome to Day One at Aerial Evolution Association of Canada 2024—setting the agenda for standards, safety, and the future of Canadian RPAS.*
 <br><br>
 
-## Indigenous Innovation Award
-
 A highlight of the week was seeing Aboriginal Training Services’ work in Indigenous aerospace training recognized with the **Indigenous Innovation Award** from the Aerial Evolution Association of Canada. The award celebrates programs that build capacity, career pathways, and community value—not just flight hours.
 <br><br>
 
@@ -42,8 +40,6 @@ For us, that means co-designing training with Nations, tracking safety habits (n
 The citation speaks to sustained contributions: advancing the RPAS sector while championing Indigenous leadership and opportunity. We’re proud this recognizes the **how**, not only the **what**—building safety culture, standardizing checklists across community programs, and pairing youth pathways with professional upskilling for local staff.
 <br><br>
 
-## From pilot skill to repeatable safety systems
-
 Aboriginal Training Services contributed a session on upgrading from “pilot skill” to **repeatable safety systems**. We walked through:
 <br><br>
 
@@ -62,9 +58,6 @@ The message landed: when communities build **systems** (not just skills), capabi
 *Shifting from skilled flying to repeatable safety systems—checklists, crew roles, and auditable data practices that scale.*
 <br><br>
 
-## Panels & takeaways we’re folding into training
-<br><br>
-
 We sat in on public-safety and operations panels comparing workflows for emergencies, corridor flights, and complex sites. Key takeaways:
 <br><br>
 
@@ -77,18 +70,12 @@ We sat in on public-safety and operations panels comparing workflows for emergen
 *Real-world workflows—BVLOS readiness, deconfliction/Remote ID, and lessons from multi-agency missions.*
 <br><br>
 
-## Connection & purpose
-<br>
-
 Conferences are also for connection. Alongside formal sessions, we joined a companion innovation gathering focused on technology and reconciliation—reminding us why this sector matters: safer communities, stronger stewardship, and dignified careers.
 <br><br>
 
 ![Innovation & reconciliation showcase](/images/blog/aerial-evolution-2024-image-7.jpg)
 
 *Connecting with partners—how RPAS training creates real community outcomes and careers.*
-<br><br>
-
-## What this means for Aboriginal Training Services students and partners
 <br><br>
 
 - **Curriculum updates**: more SORA-style risk thinking, stronger radio/airspace modules, and practical Remote ID.  
