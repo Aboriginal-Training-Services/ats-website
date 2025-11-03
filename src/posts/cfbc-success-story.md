@@ -3,7 +3,7 @@ title: "CFBC Success Story: Building Local Drone Capability"
 summary: "How Aboriginal Training Services training at the Construction Foundation of BC turned first flights into community-ready operations and real outcomes."
 slug: "cfbc-success-story"
 date: "2024-12-05"
-cover: "/images/blog/cfbc-success-story-image-01.png"
+cover: "/images/blog/cfbc-success-story-image-02.jpg"
 published: true
 ---
 
@@ -24,10 +24,6 @@ The Sky Keepers cohort worked because every partner played a focused role. **CFB
 <br><br> 
 
 From orientation onward, participants could see a straight line from learning outcomes to paid work. They practiced mission planning and communications the same way they would on a client site, from pre-flight briefings and risk checks to controlled recoveries and field notes that translate cleanly into reports.
-<br><br> 
-
-![Industry-facing training](/images/blog/cfbc-success-story-image-02.jpg)  
-*Industry-facing training: building habits and confidence that carry straight onto job sites.*
 <br><br> 
 
 Learning accelerated because the cohort learned together. Participants compared notes, coached first flights, and kept one another accountable on checklists and voice prompts. As confidence grew, so did momentum—moving from cautious hovers to deliberate patterns, then to mapping profiles and documentation flights that leadership or clients can actually use.
@@ -70,24 +66,7 @@ These repetitions built muscle memory. By day’s end, the cohort could plan and
 *First flights: structured launch zones, steady patterns, and predictable recoveries.*
 <br><br> 
 
-Training included winter conditions—low temperatures, changing light, and slick surfaces. Pilots learned to pre-warm batteries, shorten sorties, and keep conservative altitudes and speeds. Visual observers and the safety lead doubled down on communications, watching for bystanders and calling wind shifts or link warnings early.
-<br><br> 
-
-Cold-weather ops became another case study in discipline: dress for conditions, brief for shorter windows, and keep recoveries unhurried.
-<br><br> 
-
-![Winter operations](/images/blog/cfbc-success-story-image-07.jpg)  
-*Operating in winter conditions—short sorties, warm batteries, and crisp voice prompts.*
-<br><br> 
-
 Safety wasn’t a lecture; it was visible in every move. Teams staged cases and cones to keep prop arcs clear, marked launch pads, and maintained standoff distances around people and structures. Pilots verbalized intentions—“ascending to 30 metres,” “yaw right,” “returning to home”—so everyone could track the aircraft without confusion.
-<br><br> 
-
-Clear SOPs made sessions predictable, which made them safe—and made data quality much easier to achieve.
-<br><br> 
-
-![SOPs in action](/images/blog/cfbc-success-story-image-08.jpg)  
-*SOPs in action—standoff, marked pads, and call-and-response checklists.*
 <br><br> 
 
 Learners practiced the kinds of shots that matter on industrial sites: establishing overviews, safe obliques of facilities, and steady orbits that document assets without disrupting operations. They reinforced conservative caps on speed and altitude, verified return-to-home points after repositioning, and captured footage that drops cleanly into briefings and reports.
@@ -116,10 +95,6 @@ Completion day recognized both skill and resilience. Graduates received certific
 For many participants, the ceremony marked a turning point—confidence to pursue contracts, mentor others, and keep learning.
 <br><br> 
 
-![Recognition of achievement](/images/blog/cfbc-success-story-image-11.jpg)  
-*Recognition of achievement—graduates celebrate skills built for lasting opportunity.*
-<br><br> 
-
 Instruction was collaborative. Aboriginal Training Services facilitators modeled safe habits, explained controller nuances, and tied every manoeuvre to an operational outcome. Questions flowed both ways—learners brought local knowledge, and instructors translated it into practical flight plans, data workflows, and clear deliverables for leadership or clients.
 <br><br> 
 
@@ -141,5 +116,3 @@ By program’s end, crews flew with a calm, predictable style: deliberate climbs
 
 It’s a small thing that makes a big difference: predictable flying looks professional—and produces data leadership can trust.
 <br><br> 
-![A repeatable path](/images/blog/cfbc-success-story-image-02.jpg)  
-*A repeatable path—practice days, mentorship, and missions aligned to real needs.*
