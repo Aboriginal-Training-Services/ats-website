@@ -101,10 +101,6 @@ Instruction was collaborative. Aboriginal Training Services facilitators modeled
 The result is a cohort that doesn’t just fly—they brief, execute, document, and hand off data professionally.
 <br><br> 
 
-![Guided by practitioners](/images/blog/cfbc-success-story-image-03.JPG)  
-*Guided by practitioners—navigation, planning, and controller discipline made practical.*
-<br><br> 
-
 Some sessions ran in local community spaces—a reminder that technology is most powerful when it’s rooted in place. The venue set a tone of respect and collaboration, where lived experience and local priorities shaped scenarios and flight plans.
 <br><br> 
 
