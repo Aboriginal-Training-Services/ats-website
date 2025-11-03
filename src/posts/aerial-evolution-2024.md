@@ -18,7 +18,7 @@ For Aboriginal Training Services, it’s also where we keep our curriculum align
     src="/images/blog/aerial-evolution-2024-image-1.png"
     alt="Day One plenary"
     title="Welcome to Day One at Aerial Evolution Association of Canada 2024—setting the agenda for standards, safety, and the future of Canadian RPAS."
-    style="width: 85%; height: auto;"
+    style="width: 45%; height: auto;"
   />
 </p>
 
