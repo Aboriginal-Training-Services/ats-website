@@ -25,7 +25,14 @@ For Aboriginal Training Services, it’s also where we keep our curriculum align
 A highlight of the week was seeing Aboriginal Training Services’ work in Indigenous aerospace training recognized with the **Indigenous Innovation Award** from the Aerial Evolution Association of Canada. The award celebrates programs that build capacity, career pathways, and community value—not just flight hours.
 <br><br>
 
-![Award certificate](/images/blog/aerial-evolution-2024-image-2.png)
+<p align="center">
+  <img
+    src="/images/blog/aerial-evolution-2024-image-2.png"
+    alt="Certificate awarded to ATS"
+    title="ATS's Darcy Hunt awarded an Aerial Evolution Association of Canada Indigenous Innovation AWard"
+    style="width: 45%; height: auto;"
+  />
+</p>
 <br><br>
 
 *Official certificate recognizing Indigenous Innovation in the RPAS sector.*
