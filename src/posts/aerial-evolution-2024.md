@@ -3,7 +3,7 @@ title: "Aerial Evolution Association of Canada 2024: Indigenous Innovation, Safe
 summary: "How Aboriginal Training Services showed up at Canada’s premier drone event—with recognition for Indigenous innovation, a safety-first talk, and time well spent learning from peers."
 slug: "aerial-evolution-2024"
 date: "2024-11-20"
-cover: "/images/blog/aerial-evolution-2024-image-4.jpg"
+cover: "/images/blog/aerial-evolution-2024-image-4.png"
 published: true
 ---
 
