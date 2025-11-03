@@ -3,7 +3,7 @@ title: "Building Capacity, Building Futures: How Drone Training Strengthens Indi
 summary: "How Aboriginal Training Services uses drone training to build skills, jobs, and data sovereignty in Indigenous communities across Canada."
 slug: "building-capacity-building-futures"
 date: "2024-11-15"
-cover: "/images/blog/building-capacity-01.png"
+cover: "/images/blog/building-capacity-12.png"
 published: true
 ---
 
