@@ -13,8 +13,14 @@ Aerial Evolution Association of Canada’s annual Conference & Exhibition is whe
 For Aboriginal Training Services, it’s also where we keep our curriculum aligned with what operators are actually doing—SORA-based risk thinking, practical Remote ID, emerging BVLOS frameworks, and heavy-lift logistics. Being in the room sharpened our focus on what students need in 2025: disciplined mission prep, stronger airspace literacy, and data workflows that stand up to audit.
 <br><br>
 
-![Day One plenary](/images/blog/aerial-evolution-2024-image-1.png "Welcome to Day One at Aerial Evolution Association of Canada 2024—setting the agenda for standards, safety, and the future of Canadian RPAS.")
-
+<p align="center">
+  <img
+    src="/images/blog/aerial-evolution-2024-image-1.png"
+    alt="Day One plenary"
+    title="Welcome to Day One at Aerial Evolution Association of Canada 2024—setting the agenda for standards, safety, and the future of Canadian RPAS."
+    style="width: 85%; height: auto;"
+  />
+</p>
 
 A highlight of the week was seeing Aboriginal Training Services’ work in Indigenous aerospace training recognized with the **Indigenous Innovation Award** from the Aerial Evolution Association of Canada. The award celebrates programs that build capacity, career pathways, and community value—not just flight hours.
 <br><br>
