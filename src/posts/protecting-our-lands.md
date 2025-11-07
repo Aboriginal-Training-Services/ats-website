@@ -201,7 +201,7 @@ ATS continues to walk alongside communities during this expansion, providing adv
 
 <p align="center">
   <img
-    src="/images/blog/protecting-our-lands-11.png"
+    src="/images/blog/protecting-our-lands-11.jpg"
     alt="Advanced drone outputs showing multispectral and thermal imagery."
     title="Advanced sensors expand applications from basic mapping to vegetation health and thermal monitoring."
     style="width: 85%; height: auto;"
