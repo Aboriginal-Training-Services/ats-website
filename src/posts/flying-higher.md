@@ -34,7 +34,7 @@ These methods proved to be a perfect complement to NAIT’s academic strengths. 
 <br><br>
 <p align="center">
   <img
-    src="/images/blog/flying-higher-02.JPG"
+    src="/images/blog/flying-higher-02.jpg"
     alt="ATS instructors guiding NAIT students through RPAS procedures"
     title="ATS methods blend Transport Canada requirements, hands-on practice, and cultural grounding."
     style="width: 85%; height: auto;"
@@ -51,7 +51,7 @@ Outdoors, those lessons came to life. Students launched drones in mapped flight 
 <br><br>
 <p align="center">
   <img
-    src="/images/blog/flying-higher-03.JPG"
+    src="/images/blog/flying-higher-03.jpg"
     alt="NAIT students flying drones in the field during training"
     title="Students bridged classroom instruction with hands-on field missions."
     style="width: 85%; height: auto;"
