@@ -209,11 +209,11 @@ ATS continues to walk alongside communities during this expansion, providing adv
 </p>
 
 *Advanced sensors expand applications from basic mapping to vegetation health and thermal monitoring.*
-
+<br><br>
 Drone technology is transforming how Indigenous Nations safeguard their lands and waters. With the support of Aboriginal Training Services (ATS), communities are no longer waiting for outside reports or costly aerial surveys — they are flying their own missions, generating their own data, and making their own evidence-based decisions. This shift strengthens sovereignty, builds careers, and ensures that monitoring is rooted in the values of stewardship that have guided these territories for generations.
 <br><br>
 What began as training sessions has become something much larger: a movement where communities are keepers of the land, keepers of the data, and keepers of the environment. From youth mentorship in schools to advanced monitoring with thermal and multispectral sensors, Indigenous drone pilots are proving that modern aerospace tools and traditional knowledge belong together.
 <br><br>
 ATS is proud to stand alongside these Nations as they chart their own path forward. If your community is ready to explore drone training for environmental monitoring, or if you are seeking a partner to strengthen local stewardship capacity, we invite you to connect with us.
-
+<br><br>
 👉 *Contact Aboriginal Training Services today to learn how a tailored drone program can help protect your lands, empower your people, and inspire the next generation of stewards.*
