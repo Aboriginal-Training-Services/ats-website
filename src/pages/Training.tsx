@@ -522,11 +522,11 @@ const Training: React.FC = () => {
               </p>
             )}
             <div className="space-y-2 text-sm text-gray-700">
-              <p><span className="font-medium">Phone:</span> +1 (780) 278-4283</p>
+              <p><span className="font-medium">Phone:</span> +1 (587) 524-0275</p>
               <p>
                 <span className="font-medium">Email:</span>{' '}
                 <a href="mailto:malkayd@abtraining.ca" className="text-blue-600 hover:underline">
-                  malkayd@abtraining.ca
+                  darcy@abtraining.ca
                 </a>
               </p>
               <p>
