@@ -426,12 +426,16 @@ const Training: React.FC = () => {
                             </div>
                           )}
 
-                          {details.level && (
-                            <div>
-                              <h4 className="font-medium text-gray-900 mb-1">Level</h4>
-                              <p className="text-sm text-gray-600">{details.level}</p>
-                            </div>
-                          )}
+{(details.type === 'Application' || details.level) && (
+  <div>
+    <h4 className="font-medium text-gray-900 mb-1">Level</h4>
+    <p className="text-sm text-gray-600">
+      {details.type === 'Application'
+        ? 'Beginner (2 Days) · Advanced (3–4 Days) · Expert (5 Days)'
+        : details.level}
+    </p>
+  </div>
+)}
 
                           {details.suggested_preparation && (
                             <div>
