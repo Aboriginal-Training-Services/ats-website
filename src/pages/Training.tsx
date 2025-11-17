@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { Clock, Calendar, BookOpen, Award, ChevronRight, Loader2, Filter, GraduationCap } from 'lucide-react';
+import { Clock, Calendar, BookOpen, Award, ChevronRight, Loader2, Filter, GraduationCap, X } from 'lucide-react';
 
 const THINKIFIC_URLS: Record<string, string> = {
   "Drone Pilot Certificate – Advanced Operations (Online)": "https://learn.abtraining.ca/courses/advanced-exam-preparation",
@@ -52,6 +52,10 @@ const Training: React.FC = () => {
   const [registering, setRegistering] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [totalGraduates] = useState(247);
+
+  // NEW: contact modal state
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [modalCourse, setModalCourse] = useState<Course | null>(null);
 
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -181,7 +185,7 @@ const Training: React.FC = () => {
       console.error('Error parsing whats_included:', e);
     }
     return null;
-    };
+  };
 
   const formatPrice = (price: number, currency: string) => {
     if (!price) return 'Contact for pricing';
@@ -291,7 +295,7 @@ const Training: React.FC = () => {
       {/* Message */}
       {message && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className={`p-4 rounded-md ${message.type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}`}>
+          <div className={`p-4 rounded-md ${message.type === 'success' ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border-red-200'}`}>
             {message.text}
           </div>
         </div>
@@ -376,15 +380,30 @@ const Training: React.FC = () => {
                           Learn More
                         </button>
 
-                        <a
-                          href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
-                        >
-                          <ChevronRight className="w-4 h-4 mr-2" />
-                          Register Now
-                        </a>
+                        {/* Register Now: special behavior for Application courses */}
+                        {course.type === 'Application' ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setModalCourse(course);
+                              setShowContactModal(true);
+                            }}
+                            className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
+                          >
+                            <ChevronRight className="w-4 h-4 mr-2" />
+                            Register Now
+                          </button>
+                        ) : (
+                          <a
+                            href={THINKIFIC_URLS[course.title] ? THINKIFIC_URLS[course.title] : "/#/contact"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 px-4 py-2 rounded-md transition-colors duration-200 flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700"
+                          >
+                            <ChevronRight className="w-4 h-4 mr-2" />
+                            Register Now
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -481,6 +500,55 @@ const Training: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Contact modal for Application courses */}
+      {showContactModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative">
+            <button
+              type="button"
+              onClick={() => setShowContactModal(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+              aria-label="Close contact dialog"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">
+              Contact Us to Register
+            </h2>
+            {modalCourse && (
+              <p className="text-sm text-gray-600 mb-4">
+                To register for <span className="font-medium">{modalCourse.title}</span>, please contact us using the details below.
+              </p>
+            )}
+            <div className="space-y-2 text-sm text-gray-700">
+              <p><span className="font-medium">Phone:</span> +1 (780) 278-4283</p>
+              <p>
+                <span className="font-medium">Email:</span>{' '}
+                <a href="mailto:malkayd@abtraining.ca" className="text-blue-600 hover:underline">
+                  malkayd@abtraining.ca
+                </a>
+              </p>
+              <p>
+                Or use our{' '}
+                <a href="/#/contact" className="text-blue-600 hover:underline">
+                  contact form
+                </a>
+                .
+              </p>
+            </div>
+            <div className="mt-6 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setShowContactModal(false)}
+                className="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 text-sm font-medium"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
