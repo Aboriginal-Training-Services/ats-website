@@ -51,7 +51,7 @@ const Training: React.FC = () => {
   const [loadingDetails, setLoadingDetails] = useState<Set<string>>(new Set());
   const [registering, setRegistering] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [totalGraduates] = useState(500+);
+  const [totalGraduates] = useState(500);
 
   // NEW: contact modal state
   const [showContactModal, setShowContactModal] = useState(false);
@@ -286,8 +286,11 @@ const Training: React.FC = () => {
           </div>
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
             <div className="flex items-center justify-center mb-3"><GraduationCap className="h-8 w-8 text-yellow-600" /></div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">{stats.graduates}</div>
-            <div className="text-sm text-gray-600">Graduates</div>
+<div className="text-2xl font-bold text-gray-900 mb-1">
+  {stats.graduates.toLocaleString()}+
+</div>
+<div className="text-sm text-gray-600">Graduates</div>
+
           </div>
         </div>
       </div>
