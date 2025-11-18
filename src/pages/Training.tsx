@@ -51,7 +51,7 @@ const Training: React.FC = () => {
   const [loadingDetails, setLoadingDetails] = useState<Set<string>>(new Set());
   const [registering, setRegistering] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [totalGraduates] = useState(247);
+  const [totalGraduates] = useState(500+);
 
   // NEW: contact modal state
   const [showContactModal, setShowContactModal] = useState(false);
